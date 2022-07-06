@@ -1,0 +1,20 @@
+version: '3.9'
+
+services:
+  eazy-postgres:
+    image: postgres:latest
+    container_name: eazy-db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=eazy
+  eazy-mongo:
+    image: mongo:latest
+    container_name: app-db
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=mongo
+      - MONGO_INITDB_ROOT_PASSWORD=mongo
