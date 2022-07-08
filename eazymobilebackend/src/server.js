@@ -25,3 +25,6 @@ mongoose.connection.once("open", () => {
 app.listen(port, () => {
     console.log(`Eazy backend app listening at http://localhost:${port}`);
 });
+
+
+export default app;
