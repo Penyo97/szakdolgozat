@@ -11,7 +11,6 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 public class Supplier {
-
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)

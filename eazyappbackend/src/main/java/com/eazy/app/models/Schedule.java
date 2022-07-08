@@ -14,7 +14,7 @@ import java.util.Date;
 public class Schedule {
 
     @Id
-    @Column(name = "id", nullable = false)
+    @Column(name = "schedule_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 

@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class Discount {
 
     @Id
-    @Column(name = "id", nullable = false)
+    @Column(name = "discount_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
