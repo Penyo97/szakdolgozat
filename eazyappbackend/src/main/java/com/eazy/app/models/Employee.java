@@ -24,6 +24,8 @@ public class Employee {
     @Column(length = 100)
     private String last_name;
 
+    @Column(length = 100)
+    private String password;
 
     @Column(length = 50)
     private String mail;
@@ -41,4 +43,6 @@ public class Employee {
     private Position position;
 
     private Date hire_date;
+
+    private Date last_logged;
 }
