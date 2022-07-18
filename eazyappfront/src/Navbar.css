@@ -7,6 +7,7 @@
     height: 100vh;
     transition: width 1.5s ease-out,background-color 0.8s ease-in;
     min-width: 50px;
+    gap: 0.8rem;
 }
 .Navbar__logo{
     width: 35px;
@@ -19,12 +20,14 @@
 .Navbar__Icons{
     color: #ffffff;
     font-size: xx-large;
-    padding-top: 1rem;
 }
 .Navbar__LinkContainer{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.Navbar__LinkContainer > span{
+    padding-bottom: 0.7rem;
 }
 .Navbar__MenuTextNone{
     display: none;
@@ -48,7 +51,10 @@
     display: block;
 }
 .Navbar__IconPadding{
-    padding-left: 0.3rem;
+    padding-left: 12%;
+}
+.Navbar__ActiveIconPadding{
+    padding-left: 0;
 }
 .Navbar__ContainerBig{
     width: 7%;
