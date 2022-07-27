@@ -1,22 +1,32 @@
 import React from 'react';
-import {View} from "react-native";
+import {View,StyleSheet,Dimensions} from "react-native";
 import MapView from 'react-native-maps';
-
+import {BottonNavbar} from "../Components";
 
 
 
 const Map = () => {
         const region = {
-                latitude: 37.78825,
-                longitude: -122.4324,
+                latitude: 47.497913,
+                longitude: 19.040236,
                 latitudeDelta: 0.0922,
                 longitudeDelta: 0.0421,
             }
 
     return (
+        <View>
         <MapView
-            region={region} style={{height:500}}/>
+            region={region} style={style.map}/>
+            <BottonNavbar/>
+        </View>
     );
 };
 
 export default Map;
+
+
+let style = StyleSheet.create({
+    map:{
+        height:Dimensions.get("screen").height
+    }
+})
