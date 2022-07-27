@@ -1,12 +1,14 @@
 import {NavigationContainer} from "@react-navigation/native";
 import Login from "./Screens/Login";
 
-import {createNativeStackNavigator} from "react-native-screens/native-stack";
+import {createNativeStackNavigator} from "@react-navigation/native-stack";
+import Map from "./Screens/Map";
 
 
 
 export type RootStackParamList = {
   LoginScreen:undefined;
+  MapScreen:undefined;
 }
 
 export default function App() {
@@ -15,6 +17,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="LoginScreen" component={Login} options={{headerShown:false}}/>
+        <Stack.Screen name="MapScreen" component={Map} options={{headerShown:false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

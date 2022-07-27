@@ -1,14 +1,23 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {useNavigation} from "@react-navigation/native";
+import { RootStackParamList } from '../App';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 interface buttonProps {
     buttonText:string,
     buttonColor:string,
     buttonWidth:string | number,
-    buttonHeight: number
+    buttonHeight: number,
+    routeName? : string
 }
 
-const Button = ({buttonText,buttonColor,buttonWidth,buttonHeight}:buttonProps) => {
+type paramType = keyof RootStackParamList
+
+const Button = ({buttonText,buttonColor,buttonWidth,buttonHeight,routeName}:buttonProps) => {
+    const route = routeName as paramType;
+    type Props = StackNavigationProp<RootStackParamList,typeof route>
+    const navigation = useNavigation<Props>();
 
     let styles = StyleSheet.create({
         button:{
@@ -28,7 +37,7 @@ const Button = ({buttonText,buttonColor,buttonWidth,buttonHeight}:buttonProps) =
     })
 
     return (
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate(route) }>
                 <Text style={styles.text}>{buttonText.toUpperCase()}</Text>
         </TouchableOpacity>
     );
