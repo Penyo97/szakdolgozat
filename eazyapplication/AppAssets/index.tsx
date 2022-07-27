@@ -1,7 +1,8 @@
 
 const COLORS = {
     "red":"#ee2f5b",
-    "yellow":"#faa307"
+    "yellow":"#faa307",
+    "orange":"#E77423"
 }
 
 const SOCCOLORS = {

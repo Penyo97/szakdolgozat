@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4863284-cbb2-4ec5-b3c5-f49de3511ecd" name="Changes" comment="Create Login.tsx menu">
-      <change afterPath="$PROJECT_DIR$/Screens/Map.tsx" afterDir="false" />
+    <list default="true" id="e4863284-cbb2-4ec5-b3c5-f49de3511ecd" name="Changes" comment="Create Map.tsx and modify Button.tsx">
+      <change afterPath="$PROJECT_DIR$/Components/BottonNavbar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/declaration.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metro.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppAssets/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/AppAssets/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Screens/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Screens/Map.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/Map.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
@@ -114,7 +117,8 @@
       <workItem from="1658172954361" duration="3400000" />
       <workItem from="1658177895124" duration="525000" />
       <workItem from="1658312911090" duration="15074000" />
-      <workItem from="1658936498813" duration="2282000" />
+      <workItem from="1658936498813" duration="2364000" />
+      <workItem from="1658952397928" duration="6189000" />
     </task>
     <task id="LOCAL-00001" summary="Create Login.tsx menu">
       <created>1658329494295</created>
@@ -123,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658329494295</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Create Map.tsx and modify Button.tsx">
+      <created>1658940732114</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1658940732114</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -142,6 +153,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Create Login.tsx menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create Login.tsx menu" />
+    <MESSAGE value="Create Map.tsx and modify Button.tsx" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create Map.tsx and modify Button.tsx" />
   </component>
 </project>

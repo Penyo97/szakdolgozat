@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Dimensions, Keyboard, StyleSheet, View,Text} from "react-native";
+import {Dimensions, Keyboard, StyleSheet, View, Text, Platform} from "react-native";
 import {LinearGradient} from "expo-linear-gradient"
 import {COLORS, SOCCOLORS} from "../AppAssets"
 import {Card, TextInput, Paragraph, Checkbox} from "react-native-paper";
@@ -16,7 +16,7 @@ const Login = () => {
         <View>
             <LinearGradient colors={[COLORS.red, COLORS.yellow]} style={styles.linear}>
                 <Paragraph style={styles.title}>Bejelentkezés</Paragraph>
-                <Card style={styles.card}>
+                <Card style={styles.card} mode="elevated" elevation={5}>
                     <Card.Content>
                         <Paragraph style={{color: "grey"}}>Azonosító vagy e-mail cím:</Paragraph>
                         <TextInput style={styles.input} underlineColor={COLORS.red} activeUnderlineColor={COLORS.red}
@@ -61,12 +61,8 @@ const Login = () => {
 };
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-    },
     linear: {
-        height: (Dimensions.get("screen").height / 100) * 65,
+        height: (Dimensions.get("screen").height / 100) * (Platform.OS === 'ios' ? 72 : 65),
         borderBottomLeftRadius: 60,
         borderBottomRightRadius: 60,
         display: "flex",
@@ -77,7 +73,6 @@ const styles = StyleSheet.create({
         height: "70%",
         width: "80%",
         marginBottom: "-10%",
-
     },
     input: {
         height: 50,
@@ -90,7 +85,7 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         alignSelf: "flex-start",
         paddingLeft: "10%",
-        paddingBottom: 30
+        paddingBottom: 27
     },
     reg_text:{
         paddingTop:30,
