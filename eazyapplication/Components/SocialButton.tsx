@@ -1,7 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from "react-native";
 import { Icon } from "@rneui/themed";
-import {color} from "@rneui/base";
 
 interface buttonProps {
     buttonText:string,

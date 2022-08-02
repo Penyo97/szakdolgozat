@@ -44,7 +44,7 @@ const Login = () => {
                             labelStyle={{color: "grey", paddingLeft: -10}}
                         />
                         <Button buttonText={"bejelentkezés"} buttonColor={COLORS.yellow} buttonHeight={44}
-                                buttonWidth={"100%"} routeName="MapScreen"/>
+                                buttonWidth={"100%"} routeName="DrawerScreen"/>
                     </Card.Content>
                 </Card>
             </LinearGradient>
