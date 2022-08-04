@@ -1,20 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {NavigationContainer} from "@react-navigation/native";
+import Login from "./Screens/Login";
+import 'react-native-gesture-handler';
+import {createNativeStackNavigator} from "@react-navigation/native-stack";
+import Map from "./Screens/Map";
+import CustomDrawer from "./Screens/CustomDrawer";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+
+export type RootStackParamList = {
+    LoginScreen: undefined;
+    MapScreen: undefined;
+    DrawerScreen: undefined;
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default function App() {
+    const Stack = createNativeStackNavigator<RootStackParamList>();
+    return (
+        <NavigationContainer>
+            <Stack.Navigator>
+                <Stack.Screen name="LoginScreen" component={Login} options={{headerShown: false}}/>
+                <Stack.Screen name="MapScreen" component={Map} options={{headerShown: false}}/>
+                <Stack.Screen name="DrawerScreen" component={CustomDrawer} options={{headerShown: false}}/>
+            </Stack.Navigator>
+        </NavigationContainer>
+    );
+}
+
+
