@@ -1,10 +1,11 @@
 import React from 'react';
-import {View, StyleSheet, SafeAreaView, TextInput, Dimensions,TouchableOpacity} from "react-native";
+import {View, StyleSheet, TextInput, Dimensions,TouchableOpacity} from "react-native";
 import MapView from 'react-native-maps';
 import {BottonNavbar} from "../Components";
 import {Icon} from "@rneui/base";
 import {COLORS} from "../AppAssets";
-
+import Animated from "react-native-reanimated";
+import {useDrawerProgress} from "@react-navigation/drawer";
 
 const TopNavbar = ({navigation}:any) => {
     return(
@@ -22,6 +23,23 @@ const TopNavbar = ({navigation}:any) => {
 
 
 const Map = ({navigation}:any) => {
+
+    const progress = useDrawerProgress();
+
+    // @ts-ignore
+    const scale = Animated.interpolateNode(progress,{
+        inputRange:[0,1],
+        outputRange:[1,0.8]
+    })
+    // @ts-ignore
+    const borderRadios = Animated.interpolateNode(progress,{
+        inputRange:[0,1],
+        outputRange:[0,26]
+    })
+
+    const animatedStyle = {borderRadios,transform:[{scale}]}
+
+
         const region = {
                 latitude: 47.497913,
                 longitude: 19.040236,
@@ -29,13 +47,16 @@ const Map = ({navigation}:any) => {
                 longitudeDelta: 0.0421,
             }
 
+
+
+
     return (
-        <SafeAreaView>
+        <Animated.View >
             <TopNavbar  navigation={navigation}/>
         <MapView
             region={region} style={style.map}/>
             <BottonNavbar/>
-        </SafeAreaView>
+        </Animated.View>
     );
 };
 
@@ -72,5 +93,5 @@ let style = StyleSheet.create({
         flex:1,
         justifyContent:"center",
         paddingLeft:10
-    }
+    },
     })
