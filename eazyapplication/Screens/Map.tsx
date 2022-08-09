@@ -1,11 +1,10 @@
 import React from 'react';
 import {View, StyleSheet, TextInput, Dimensions,TouchableOpacity} from "react-native";
-import MapView from 'react-native-maps';
+import MapView,{Marker} from 'react-native-maps';
 import {BottonNavbar} from "../Components";
 import {Icon} from "@rneui/base";
 import {COLORS} from "../AppAssets";
 import Animated from "react-native-reanimated";
-import {useDrawerProgress} from "@react-navigation/drawer";
 
 const TopNavbar = ({navigation}:any) => {
     return(
@@ -24,21 +23,6 @@ const TopNavbar = ({navigation}:any) => {
 
 const Map = ({navigation}:any) => {
 
-    const progress = useDrawerProgress();
-
-    // @ts-ignore
-    const scale = Animated.interpolateNode(progress,{
-        inputRange:[0,1],
-        outputRange:[1,0.8]
-    })
-    // @ts-ignore
-    const borderRadios = Animated.interpolateNode(progress,{
-        inputRange:[0,1],
-        outputRange:[0,26]
-    })
-
-    const animatedStyle = {borderRadios,transform:[{scale}]}
-
 
         const region = {
                 latitude: 47.497913,
@@ -51,10 +35,16 @@ const Map = ({navigation}:any) => {
 
 
     return (
-        <Animated.View >
+        <Animated.View>
             <TopNavbar  navigation={navigation}/>
         <MapView
-            region={region} style={style.map}/>
+            region={region} style={style.map}>
+            <Marker
+                coordinate={region}
+                title={"proba"}
+                description={"proba"}
+            />
+        </MapView>
             <BottonNavbar/>
         </Animated.View>
     );

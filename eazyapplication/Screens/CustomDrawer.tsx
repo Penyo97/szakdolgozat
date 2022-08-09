@@ -14,12 +14,15 @@ import Animated from "react-native-reanimated";
 
 const Drawer = createDrawerNavigator();
 const  CustomDrawerContent = (props:any) => {
+
     return(
-        <View style={{flex:1}}>
+        <View style={{flex:0.6}}>
         <DrawerContentScrollView {...props} contentContainerStyle={style.container}>
+
             <DrawerItemList {...props} />
             <DrawerItem label="exit" onPress={()=> {
                 props.navigation.closeDrawer()}}/>
+
         </DrawerContentScrollView>
         </View>
     )
@@ -31,7 +34,7 @@ const  CustomDrawerContent = (props:any) => {
 const CustomDrawer = () => {
 
     return (
-            <Drawer.Navigator screenOptions={{drawerStyle:style.drawerContainer}} drawerContent={(props) => {
+            <Drawer.Navigator screenOptions={{drawerStyle:style.drawerContainer,}} drawerContent={(props) => {
                 return (
                     <CustomDrawerContent {...props} />
                 )
@@ -46,7 +49,7 @@ const style = StyleSheet.create({
 
     },
     drawerContainer:{
-        width:Dimensions.get("screen").width,
+        width:Dimensions.get("screen").width/1.5,
         backgroundColor:COLORS.orange
         }
 })

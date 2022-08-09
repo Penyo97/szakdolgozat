@@ -41,7 +41,6 @@ const BottonNavbar = () => {
             labelStyle={{ color: COLORS.orange, fontWeight: '600', fontSize: 13 }}
             onTabChange={(name) => console.log(name.name)}
             transitionSpeed={0.5}
-            containerBottomSpace={40}
         />
     );
 };
