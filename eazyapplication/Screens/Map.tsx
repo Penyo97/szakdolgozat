@@ -12,7 +12,7 @@ const TopNavbar = ({navigation}:any) => {
             <View style={style.inputContainer}>
                 <TextInput style={style.input} placeholder="Vendéglátóhelyek a környékeden." />
             </View>
-            <TouchableOpacity style={style.menu} onPress={()=> {console.log(navigation); navigation.openDrawer()}}>
+            <TouchableOpacity style={style.menu} onPress={()=>  navigation.openDrawer()}>
                 <Icon name="bars" color="#fff" type="font-awesome-5" size={25}/>
             </TouchableOpacity>
         </View>

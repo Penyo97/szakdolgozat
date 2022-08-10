@@ -18,11 +18,12 @@ const Explore = ({navigation}:any) => {
                         <Icon name="bars" color="#fff" type="font-awesome-5" size={40}/>
                     </TouchableOpacity>
                 </View>
-                <View>
-                    <TextInput/>
+                <View style={style.inputbox}>
+                    <Icon name="search" color="#fff" type="font-awesome-5" size={25}/>
+                    <TextInput style={style.input} placeholder="Hely, termék vagy szolgáltatás keresése..." placeholderTextColor="#fff"/>
                 </View>
             </LinearGradient>
-            <BottonNavbar/>
+
         </View>
     );
 };
@@ -40,12 +41,26 @@ const style = StyleSheet.create({
         width:50,
         height:50
     },
-    header_menu:{
-        paddingLeft:Dimensions.get("window").width/15,
-        paddingRight:Dimensions.get("window").width/15,
-        flexDirection:"row",
-        justifyContent:"space-between",
-        alignItems:"center",
-        paddingTop:30
+    header_menu: {
+        paddingLeft: Dimensions.get("window").width / 15,
+        paddingRight: Dimensions.get("window").width / 15,
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        paddingTop: 30
+    },
+    inputbox:{
+        marginLeft: Dimensions.get("window").width / 15,
+        marginRight: Dimensions.get("window").width / 15,
+        flexDirection: "row",
+        borderColor:"#fff",
+        borderWidth:1,
+        marginTop:10,
+        paddingTop:10,
+        paddingBottom:10,
+        paddingLeft:10
+    },
+    input:{
+        paddingLeft:10,
     }
 })

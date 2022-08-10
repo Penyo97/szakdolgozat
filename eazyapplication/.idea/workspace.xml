@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4863284-cbb2-4ec5-b3c5-f49de3511ecd" name="Changes" comment="create drawermenu">
-      <change afterPath="$PROJECT_DIR$/Screens/Explore.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/ez_logo.png" afterDir="false" />
+    <list default="true" id="e4863284-cbb2-4ec5-b3c5-f49de3511ecd" name="Changes" comment="Create Explore.tsx">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Screens/CustomDrawer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/CustomDrawer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Screens/Explore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/Explore.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Screens/Map.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/Map.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -168,7 +165,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659470434305</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Create Explore.tsx">
+      <created>1660167610255</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1660167610255</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +194,7 @@
     <MESSAGE value="Create Map.tsx and modify Button.tsx" />
     <MESSAGE value="Fix map and botton navigation and make some changes to Login.tsx" />
     <MESSAGE value="create drawermenu" />
-    <option name="LAST_COMMIT_MESSAGE" value="create drawermenu" />
+    <MESSAGE value="Create Explore.tsx" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create Explore.tsx" />
   </component>
 </project>
