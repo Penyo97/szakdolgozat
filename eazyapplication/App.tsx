@@ -4,12 +4,14 @@ import 'react-native-gesture-handler';
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import Map from "./Screens/Map";
 import CustomDrawer from "./Screens/CustomDrawer";
+import Explore from "./Screens/Explore";
 
 
 export type RootStackParamList = {
     LoginScreen: undefined;
     MapScreen: undefined;
     DrawerScreen: undefined;
+    ExploreScreen: undefined;
 }
 
 export default function App() {
@@ -19,6 +21,7 @@ export default function App() {
             <Stack.Navigator>
                 <Stack.Screen name="LoginScreen" component={Login} options={{headerShown: false}}/>
                 <Stack.Screen name="MapScreen" component={Map} options={{headerShown: false}}/>
+                <Stack.Screen name="ExploreScreen" component={Explore} options={{headerShown: false}}/>
                 <Stack.Screen name="DrawerScreen" component={CustomDrawer} options={{headerShown: false}}/>
             </Stack.Navigator>
         </NavigationContainer>

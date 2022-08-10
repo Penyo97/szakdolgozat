@@ -10,6 +10,7 @@ import {
 import Map from "./Map";
 import {COLORS} from "../AppAssets";
 import Animated from "react-native-reanimated";
+import Explore from "./Explore";
 
 
 const Drawer = createDrawerNavigator();
@@ -40,6 +41,7 @@ const CustomDrawer = () => {
                 )
             }} >
                 <Drawer.Screen name="Map" component={Map} options={{headerShown:false,}}/>
+                <Drawer.Screen name="Explore" component={Explore} options={{headerShown:false}}/>
             </Drawer.Navigator>
     );
 };
