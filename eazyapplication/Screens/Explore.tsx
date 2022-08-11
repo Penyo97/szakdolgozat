@@ -1,16 +1,32 @@
 import React from 'react';
 import {LinearGradient} from "expo-linear-gradient"
-import {View, StyleSheet, Dimensions, Image, TouchableOpacity, TextInput} from "react-native";
+import {View, StyleSheet, Dimensions, Image, TouchableOpacity, TextInput,Text,FlatList} from "react-native";
 import {COLORS} from "../AppAssets";
 // @ts-ignore
 import logo from "../assets/ez_logo.png"
 import {Icon} from "@rneui/base";
 import {BottonNavbar} from "../Components";
 
+
+const DATA = [
+    {
+        id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+        title: 'First Item',
+    },
+    {
+        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+        title: 'Second Item',
+    },
+    {
+        id: '58694a0f-3da1-471f-bd96-145571e29d72',
+        title: 'Third Item',
+    },
+];
+
 const Explore = ({navigation}:any) => {
 
     return (
-        <View>
+        <View style={style.container}>
             <LinearGradient colors={[COLORS.red, COLORS.yellow]} style={style.header}>
                 <View style={style.header_menu}>
                     <Image source={logo} style={style.logo}/>
@@ -22,8 +38,15 @@ const Explore = ({navigation}:any) => {
                     <Icon name="search" color="#fff" type="font-awesome-5" size={25}/>
                     <TextInput style={style.input} placeholder="Hely, termék vagy szolgáltatás keresése..." placeholderTextColor="#fff"/>
                 </View>
+                <View style={{flexDirection:"row"}}>
+                    <Text>Összes</Text>
+                    <Text>Szórakozás</Text>
+                    <Text>Gasztro</Text>
+                    <Text>Események</Text>
+                </View>
             </LinearGradient>
-
+            <FlatList data={DATA} renderItem={(item) => <Text>{item.item.title}</Text>} keyExtractor={item => item.id}/>
+            <BottonNavbar/>
         </View>
     );
 };
@@ -31,6 +54,9 @@ const Explore = ({navigation}:any) => {
 export default Explore;
 
 const style = StyleSheet.create({
+    container:{
+        height:Dimensions.get("screen").height
+    },
     header:{
         height:Dimensions.get("screen").height/4,
         borderBottomLeftRadius: 30,
@@ -63,4 +89,5 @@ const style = StyleSheet.create({
     input:{
         paddingLeft:10,
     }
+
 })
