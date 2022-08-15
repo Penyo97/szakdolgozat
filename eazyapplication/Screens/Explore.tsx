@@ -1,29 +1,92 @@
 import React from 'react';
 import {LinearGradient} from "expo-linear-gradient"
-import {View, StyleSheet, Dimensions, Image, TouchableOpacity, TextInput,Text,FlatList} from "react-native";
+import {
+    View,
+    StyleSheet,
+    Dimensions,
+    Image,
+    TouchableOpacity,
+    TextInput,
+    Text,
+    FlatList,
+    ScrollView
+} from "react-native";
 import {COLORS} from "../AppAssets";
 // @ts-ignore
 import logo from "../assets/ez_logo.png"
 import {Icon} from "@rneui/base";
 import {BottonNavbar} from "../Components";
+import ExploreBox from "../Components/ExploreBox";
 
 
 const DATA = [
     {
-        id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-        title: 'First Item',
+        id: "1",
+        title: 'INSTANT - FOGAS',
+        description: 'Romkocsma, Koncerthelyszín',
+        image: logo,
+        subImages: [logo, logo, logo],
+        rate: 4.8,
+        rateNumber: 2342
     },
     {
-        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-        title: 'Second Item',
+        id: "2",
+        title: 'INSTANT - FOGAS',
+        description: 'Romkocsma, Koncerthelyszín',
+        image: logo,
+        subImages: [logo, logo, logo],
+        rate: 4.8,
+        rateNumber: 2342
     },
     {
-        id: '58694a0f-3da1-471f-bd96-145571e29d72',
-        title: 'Third Item',
+        id: "3",
+        title: 'INSTANT - FOGAS',
+        description: 'Romkocsma, Koncerthelyszín',
+        image: logo,
+        subImages: [logo, logo, logo],
+        rate: 4.8,
+        rateNumber: 2342
     },
 ];
 
-const Explore = ({navigation}:any) => {
+interface flatlistHeaderInterface {
+    Headertext: string,
+    Bottontext: string
+}
+
+const FlatListHeader = ({Headertext, Bottontext}: flatlistHeaderInterface) => {
+    return (
+        <View style={{marginLeft: Dimensions.get("screen").width / 20, paddingTop: 15, paddingBottom: 15}}>
+            <View style={{flexDirection:"row",justifyContent:"space-between",marginRight:20}}>
+            <Text style={{fontSize: 18, color: "grey"}}>{Headertext}</Text>
+            <Icon name="arrow-right" color={"grey"} type="font-awesome-5" size={25} style={{paddingRight: 5}}/>
+            </View>
+            <FlatList data={DATA}
+                      renderItem={(item) =>
+                          <ExploreBox
+                              image={item.item.image}
+                              title={item.item.title}
+                              description={item.item.description}
+                              subImages={item.item.subImages}
+                              rate={item.item.rate}
+                              rateNumber={item.item.rateNumber}
+                              horizontal={true}
+                          />
+                      }
+                      keyExtractor={item => item.id}
+                      horizontal={true}
+                      showsHorizontalScrollIndicator={false}
+            />
+            <View style={{flexDirection:"row",justifyContent:"space-between",marginRight:20}}>
+                <Text style={{fontSize: 18, color: "grey"}}>{Bottontext}</Text>
+                <Icon name="arrow-down" color={"grey"} type="font-awesome-5" size={25} style={{paddingRight: 5}}/>
+            </View>
+        </View>
+    )
+}
+
+
+const Explore = ({navigation}: any) => {
 
     return (
         <View style={style.container}>
@@ -36,16 +99,31 @@ const Explore = ({navigation}:any) => {
                 </View>
                 <View style={style.inputbox}>
                     <Icon name="search" color="#fff" type="font-awesome-5" size={25}/>
-                    <TextInput style={style.input} placeholder="Hely, termék vagy szolgáltatás keresése..." placeholderTextColor="#fff"/>
+                    <TextInput style={style.input} placeholder="Hely, termék vagy szolgáltatás keresése..."
+                               placeholderTextColor="#fff" selectionColor="#fff"/>
                 </View>
-                <View style={{flexDirection:"row"}}>
-                    <Text>Összes</Text>
-                    <Text>Szórakozás</Text>
-                    <Text>Gasztro</Text>
-                    <Text>Események</Text>
+                <View style={style.bottomTabs}>
+                    <Text style={{color: "#fff"}}>Összes</Text>
+                    <Text style={{color: "#fff"}}>Szórakozás</Text>
+                    <Text style={{color: "#fff"}}>Gasztro</Text>
+                    <Text style={{color: "#fff"}}>Események</Text>
                 </View>
             </LinearGradient>
-            <FlatList data={DATA} renderItem={(item) => <Text>{item.item.title}</Text>} keyExtractor={item => item.id}/>
+            <FlatList data={DATA}
+                      renderItem={(item) =>
+                          <ExploreBox
+                              image={item.item.image}
+                              title={item.item.title}
+                              description={item.item.description}
+                              subImages={item.item.subImages}
+                              rate={item.item.rate}
+                              rateNumber={item.item.rateNumber}
+                              horizontal={false}/>
+                      }
+                      keyExtractor={item => item.id}
+                      showsHorizontalScrollIndicator={false}
+                      ListHeaderComponent={<FlatListHeader Headertext={"Klubok, Szórakozóhelyek"} Bottontext={"Bárok, Kocsmák"}/>}
+            />
             <BottonNavbar/>
         </View>
     );
@@ -54,40 +132,48 @@ const Explore = ({navigation}:any) => {
 export default Explore;
 
 const style = StyleSheet.create({
-    container:{
-        height:Dimensions.get("screen").height
+    container: {
+        height: Dimensions.get("screen").height,
+        backgroundColor: "#F0F0F0"
     },
-    header:{
-        height:Dimensions.get("screen").height/4,
-        borderBottomLeftRadius: 30,
-        borderBottomRightRadius: 30,
-        width:Dimensions.get("screen").width
+    header: {
+        height: Dimensions.get("screen").height / 3.8,
+        borderBottomLeftRadius: 25,
+        borderBottomRightRadius: 25,
+        width: Dimensions.get("screen").width
     },
-    logo:{
-        width:50,
-        height:50
+    logo: {
+        width: 50,
+        height: 50
     },
     header_menu: {
-        paddingLeft: Dimensions.get("window").width / 15,
-        paddingRight: Dimensions.get("window").width / 15,
+        paddingLeft: Dimensions.get("screen").width / 20,
+        paddingRight: Dimensions.get("screen").width / 20,
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
         paddingTop: 30
     },
-    inputbox:{
-        marginLeft: Dimensions.get("window").width / 15,
-        marginRight: Dimensions.get("window").width / 15,
+    inputbox: {
+        marginLeft: Dimensions.get("screen").width / 20,
+        marginRight: Dimensions.get("screen").width / 20,
         flexDirection: "row",
-        borderColor:"#fff",
-        borderWidth:1,
-        marginTop:10,
-        paddingTop:10,
-        paddingBottom:10,
-        paddingLeft:10
+        borderColor: "#fff",
+        borderWidth: 1,
+        marginTop: 10,
+        paddingTop: 10,
+        paddingBottom: 10,
+        paddingLeft: 10
     },
-    input:{
-        paddingLeft:10,
+    input: {
+        paddingLeft: 10,
+    },
+    bottomTabs: {
+        flexDirection: "row",
+        flex: 1,
+        paddingLeft: Dimensions.get("screen").width / 20,
+        paddingRight: Dimensions.get("screen").width / 20,
+        justifyContent: "space-between",
+        alignItems: "center"
     }
-
 })

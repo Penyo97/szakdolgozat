@@ -2,6 +2,7 @@ import React from 'react';
 import Tabbar from "@mindinventory/react-native-tab-bar-interaction";
 import {Icon} from "@rneui/base";
 import {COLORS} from "../AppAssets";
+import {Platform} from "react-native";
 
 const tabs = [
     {
@@ -41,6 +42,7 @@ const BottonNavbar = () => {
             labelStyle={{ color: COLORS.orange, fontWeight: '600', fontSize: 13 }}
             onTabChange={(name) => console.log(name.name)}
             transitionSpeed={0.5}
+            containerBottomSpace={Platform.OS !== 'ios' ? 40 : 0}
         />
     );
 };

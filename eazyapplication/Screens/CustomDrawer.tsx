@@ -5,7 +5,6 @@ import {
     DrawerContentScrollView,
     DrawerItemList,
     DrawerItem,
-    useDrawerProgress,
 } from '@react-navigation/drawer';
 import Map from "./Map";
 import {COLORS} from "../AppAssets";
@@ -19,7 +18,6 @@ const  CustomDrawerContent = (props:any) => {
     return(
         <View style={{flex:0.6}}>
         <DrawerContentScrollView {...props} contentContainerStyle={style.container}>
-
             <DrawerItemList {...props} />
             <DrawerItem label="exit" onPress={()=> {
                 props.navigation.closeDrawer()}}/>
@@ -35,7 +33,7 @@ const  CustomDrawerContent = (props:any) => {
 const CustomDrawer = () => {
 
     return (
-            <Drawer.Navigator screenOptions={{drawerStyle:style.drawerContainer,}} drawerContent={(props) => {
+            <Drawer.Navigator screenOptions={{drawerStyle:style.drawerContainer,drawerInactiveTintColor:"#fff",drawerActiveTintColor:"#fff"}} drawerContent={(props) => {
                 return (
                     <CustomDrawerContent {...props} />
                 )

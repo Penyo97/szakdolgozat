@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4863284-cbb2-4ec5-b3c5-f49de3511ecd" name="Changes" comment="update Explore.tsx">
+    <list default="true" id="e4863284-cbb2-4ec5-b3c5-f49de3511ecd" name="Changes" comment="Add flatList Explore.tsx">
+      <change afterPath="$PROJECT_DIR$/Components/ExploreBox.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/BottonNavbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/BottonNavbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Screens/CustomDrawer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/CustomDrawer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Screens/Explore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/Explore.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -128,7 +131,9 @@
       <workItem from="1659888194655" duration="4273000" />
       <workItem from="1660076122930" duration="685000" />
       <workItem from="1660076827494" duration="2692000" />
-      <workItem from="1660237657772" duration="789000" />
+      <workItem from="1660237657772" duration="827000" />
+      <workItem from="1660583009192" duration="3762000" />
+      <workItem from="1660587397468" duration="7604000" />
     </task>
     <task id="LOCAL-00001" summary="Create Login.tsx menu">
       <created>1658329494295</created>
@@ -179,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660168245719</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Add flatList Explore.tsx">
+      <created>1660238473499</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1660238473499</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,6 +215,7 @@
     <MESSAGE value="create drawermenu" />
     <MESSAGE value="Create Explore.tsx" />
     <MESSAGE value="update Explore.tsx" />
-    <option name="LAST_COMMIT_MESSAGE" value="update Explore.tsx" />
+    <MESSAGE value="Add flatList Explore.tsx" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add flatList Explore.tsx" />
   </component>
 </project>
