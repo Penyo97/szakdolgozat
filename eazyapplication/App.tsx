@@ -5,6 +5,7 @@ import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import Map from "./Screens/Map";
 import CustomDrawer from "./Screens/CustomDrawer";
 import Explore from "./Screens/Explore";
+import Pub from "./Screens/Pub";
 
 
 export type RootStackParamList = {
@@ -12,6 +13,7 @@ export type RootStackParamList = {
     MapScreen: undefined;
     DrawerScreen: undefined;
     ExploreScreen: undefined;
+    PubScreen: undefined;
 }
 
 export default function App() {
@@ -23,6 +25,7 @@ export default function App() {
                 <Stack.Screen name="MapScreen" component={Map} options={{headerShown: false}}/>
                 <Stack.Screen name="ExploreScreen" component={Explore} options={{headerShown: false}}/>
                 <Stack.Screen name="DrawerScreen" component={CustomDrawer} options={{headerShown: false}}/>
+                <Stack.Screen name="PubScreen" component={Pub} options={{headerShown: false}}/>
             </Stack.Navigator>
         </NavigationContainer>
     );

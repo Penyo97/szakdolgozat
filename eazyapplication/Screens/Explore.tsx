@@ -71,6 +71,8 @@ const FlatListHeader = ({Headertext, Bottontext}: flatlistHeaderInterface) => {
                               rate={item.item.rate}
                               rateNumber={item.item.rateNumber}
                               horizontal={true}
+                              routeName={"PubScreen"}
+                              id={item.item.id}
                           />
                       }
                       keyExtractor={item => item.id}
@@ -118,11 +120,15 @@ const Explore = ({navigation}: any) => {
                               subImages={item.item.subImages}
                               rate={item.item.rate}
                               rateNumber={item.item.rateNumber}
-                              horizontal={false}/>
+                              horizontal={false}
+                              routeName={"PubScreen"}
+                              id={item.item.id}
+                          />
                       }
                       keyExtractor={item => item.id}
                       showsHorizontalScrollIndicator={false}
                       ListHeaderComponent={<FlatListHeader Headertext={"Klubok, Szórakozóhelyek"} Bottontext={"Bárok, Kocsmák"}/>}
+                      contentContainerStyle={{ paddingBottom: 100 }}
             />
             <BottonNavbar/>
         </View>

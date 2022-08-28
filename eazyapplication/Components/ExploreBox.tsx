@@ -2,6 +2,9 @@ import React from 'react';
 import {View, StyleSheet, Dimensions, Image, Text, TouchableOpacity} from "react-native";
 import {Icon, ImageProps} from "@rneui/base";
 import {COLORS} from "../AppAssets";
+import {StackNavigationProp} from "@react-navigation/stack";
+import {RootStackParamList} from "../App";
+import {useNavigation} from "@react-navigation/native";
 
 
 interface ExploreBoxInterface {
@@ -11,21 +14,44 @@ interface ExploreBoxInterface {
     subImages: Array<string>,
     rate: number,
     rateNumber: number,
-    horizontal: boolean
+    horizontal: boolean,
+    routeName?: string,
+    id: string
 }
 
-const ExploreButton = () => {
+interface ExploreBoxButtonInterface {
+    routeName?: string,
+    id: string
+}
+
+
+type paramType = keyof RootStackParamList
+
+const ExploreButton = ({routeName,id}:ExploreBoxButtonInterface) => {
+
+    const route = routeName as paramType;
+    type Props = StackNavigationProp<RootStackParamList,typeof route>
+    const navigation = useNavigation<Props>();
+
+
     return (
-        <TouchableOpacity style={style.button}>
+        <TouchableOpacity style={style.button} onPress={() => {
+            // @ts-ignore
+            navigation.navigate(route, {id: id})
+        }}>
             <Text style={{color: "#fff"}}> MEGNÉZEM</Text>
         </TouchableOpacity>
     )
 }
 
-const ExploreBox = ({rate, rateNumber, subImages, image, title, description, horizontal}: ExploreBoxInterface) => {
+const ExploreBox = ({rate, rateNumber, subImages, image, title, description, horizontal, routeName,id}: ExploreBoxInterface) => {
     return (
         <View
-            style={[style.container, horizontal && {marginRight: Dimensions.get("screen").width / 30,marginLeft:0}]}>
+            style={[style.container, horizontal && {
+                marginRight: Dimensions.get("screen").width / 30,
+                marginLeft: 0,
+                width: (Dimensions.get("screen").width / 100 ) * 92
+            }]}>
             <View style={style.imageTitleBox}>
                 <Image source={image as unknown as ImageProps} style={style.image}/>
                 <View>
@@ -44,7 +70,7 @@ const ExploreBox = ({rate, rateNumber, subImages, image, title, description, hor
                     <Icon name="bolt" color={COLORS.yellow} type="font-awesome-5" size={25} style={{paddingRight: 5}}/>
                     <Text style={{fontSize: 18}}>{rate} ({rateNumber})</Text>
                 </View>
-                <ExploreButton/>
+                <ExploreButton routeName={routeName} id={id}/>
             </View>
         </View>
     );
@@ -62,8 +88,8 @@ const style = StyleSheet.create({
         borderRadius: 20,
         padding: 15,
         backgroundColor: "white",
-        marginTop:10,
-        marginBottom:10
+        marginTop: 10,
+        marginBottom: 10
     },
     imageTitleBox: {
         flexDirection: "row",
