@@ -8,8 +8,7 @@ import {
     TouchableOpacity,
     TextInput,
     Text,
-    FlatList,
-    ScrollView
+    FlatList
 } from "react-native";
 import {COLORS} from "../AppAssets";
 // @ts-ignore
