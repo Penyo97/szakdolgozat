@@ -6,4 +6,14 @@
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd">
 
     <include file="liquibase/create-table.xml"/>
+
+    <changeSet id="2022_08_30_add_latitude_and_longitude" author="adam.petrik">
+        <addColumn tableName="manufacturer">
+            <column name="latitude" type="double"/>
+            <column name="longitude" type="double"/>
+            <column name="street_number" type="number"/>
+        </addColumn>
+    </changeSet>
+
+    <include file="liquibase/dummy-datas.xml"/>
 </databaseChangeLog>
