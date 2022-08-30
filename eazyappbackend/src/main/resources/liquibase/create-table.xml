@@ -1,0 +1,166 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="adam.petrik" id="1661886399260-1">
+        <createTable tableName="brand">
+            <column autoIncrement="true" name="brand_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="brand_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="adam.petrik" id="1661886399260-2">
+        <createTable tableName="discount">
+            <column autoIncrement="true" name="discount_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="discount_pkey"/>
+            </column>
+            <column name="discount" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="adam.petrik" id="1661886399260-3">
+        <createTable tableName="employee">
+            <column autoIncrement="true" name="employee_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="employee_pkey"/>
+            </column>
+            <column name="first_name" type="VARCHAR(100)"/>
+            <column name="hire_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="last_name" type="VARCHAR(100)"/>
+            <column name="mail" type="VARCHAR(50)"/>
+            <column name="phone" type="VARCHAR(11)"/>
+            <column name="manufacturer_id" type="BIGINT"/>
+            <column name="position_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="adam.petrik" id="1661886399260-4">
+        <createTable tableName="manufacturer">
+            <column autoIncrement="true" name="manufacturer_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="manufacturer_pkey"/>
+            </column>
+            <column name="city" type="VARCHAR(100)"/>
+            <column name="close_time" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mail" type="VARCHAR(50)"/>
+            <column name="name" type="VARCHAR(100)"/>
+            <column name="open_time" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone" type="VARCHAR(11)"/>
+            <column name="postal_code" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="street" type="VARCHAR(100)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="adam.petrik" id="1661886399260-5">
+        <createTable tableName="position">
+            <column autoIncrement="true" name="position_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="position_pkey"/>
+            </column>
+            <column name="position_name" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="adam.petrik" id="1661886399260-6">
+        <createTable tableName="product">
+            <column autoIncrement="true" name="product_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="product_pkey"/>
+            </column>
+            <column name="brutto_price" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="category" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="image" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(100)"/>
+            <column name="netto_price" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_group" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sku" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="brand_id" type="BIGINT"/>
+            <column name="manufacturer_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="adam.petrik" id="1661886399260-7">
+        <createTable tableName="schedule">
+            <column autoIncrement="true" name="schedule_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="schedule_pkey"/>
+            </column>
+            <column name="date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="duration" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="end_hour" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="start_hour" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="employee_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="adam.petrik" id="1661886399260-8">
+        <createTable tableName="stock">
+            <column autoIncrement="true" name="stock_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="stock_pkey"/>
+            </column>
+            <column name="free" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="supplier_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="product_id" type="BIGINT"/>
+            <column name="supplier_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="adam.petrik" id="1661886399260-9">
+        <createTable tableName="supplier">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="supplier_pkey"/>
+            </column>
+            <column name="city" type="VARCHAR(100)"/>
+            <column name="mail" type="VARCHAR(50)"/>
+            <column name="name" type="VARCHAR(100)"/>
+            <column name="phone" type="VARCHAR(11)"/>
+            <column name="postal_code" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="street" type="VARCHAR(100)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="adam.petrik" id="1661886399260-10">
+        <addForeignKeyConstraint baseColumnNames="manufacturer_id" baseTableName="employee" constraintName="fk2f15xrmxp801nc0l6y5iqvu9c" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="manufacturer_id" referencedTableName="manufacturer" validate="true"/>
+    </changeSet>
+    <changeSet author="adam.petrik" id="1661886399260-11">
+        <addForeignKeyConstraint baseColumnNames="manufacturer_id" baseTableName="product" constraintName="fk89igr5j06uw5ps04djxgom0l1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="manufacturer_id" referencedTableName="manufacturer" validate="true"/>
+    </changeSet>
+    <changeSet author="adam.petrik" id="1661886399260-12">
+        <addForeignKeyConstraint baseColumnNames="product_id" baseTableName="discount" constraintName="fk9qcsopl406ufumbitfi9u7jop" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="product_id" referencedTableName="product" validate="true"/>
+    </changeSet>
+    <changeSet author="adam.petrik" id="1661886399260-13">
+        <addForeignKeyConstraint baseColumnNames="position_id" baseTableName="employee" constraintName="fkbc8rdko9o9n1ri9bpdyxv3x7i" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="position_id" referencedTableName="position" validate="true"/>
+    </changeSet>
+    <changeSet author="adam.petrik" id="1661886399260-14">
+        <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="employee" constraintName="fket68o7q1d3gwukwg0j1o5dbcu" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="manufacturer_id" referencedTableName="manufacturer" validate="true"/>
+    </changeSet>
+    <changeSet author="adam.petrik" id="1661886399260-15">
+        <addForeignKeyConstraint baseColumnNames="product_id" baseTableName="stock" constraintName="fkjghkvw2snnsr5gpct0of7xfcf" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="product_id" referencedTableName="product" validate="true"/>
+    </changeSet>
+    <changeSet author="adam.petrik" id="1661886399260-16">
+        <addForeignKeyConstraint baseColumnNames="supplier_id" baseTableName="stock" constraintName="fkl2fbubw80ojtirp051oms6piu" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="supplier" validate="true"/>
+    </changeSet>
+    <changeSet author="adam.petrik" id="1661886399260-17">
+        <addForeignKeyConstraint baseColumnNames="product_id" baseTableName="product" constraintName="fkr3s8beeip4rmjc8r7xnp9dr73" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="manufacturer_id" referencedTableName="manufacturer" validate="true"/>
+    </changeSet>
+    <changeSet author="adam.petrik" id="1661886399260-18">
+        <addForeignKeyConstraint baseColumnNames="brand_id" baseTableName="product" constraintName="fks6cydsualtsrprvlf2bb3lcam" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="brand_id" referencedTableName="brand" validate="true"/>
+    </changeSet>
+    <changeSet author="adam.petrik" id="1661886399260-19">
+        <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="schedule" constraintName="fksodsj8c282vagj766ll9g8tdc" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="employee_id" referencedTableName="employee" validate="true"/>
+    </changeSet>
+</databaseChangeLog>
