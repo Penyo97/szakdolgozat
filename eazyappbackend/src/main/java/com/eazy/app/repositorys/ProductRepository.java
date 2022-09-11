@@ -7,4 +7,5 @@ public interface ProductRepository extends CrudRepository<Product,Long> {
 
     Iterable<Product> getProductsByCategory(String category);
 
+    Iterable<Product> getProductsByManufacturer(Long id);
 }

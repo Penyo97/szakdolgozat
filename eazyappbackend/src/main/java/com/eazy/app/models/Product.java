@@ -1,15 +1,15 @@
 package com.eazy.app.models;
 
 
-import lombok.Getter;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
 @Entity
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 public class Product {
 
@@ -37,7 +37,9 @@ public class Product {
     @Column(length = 255)
     private String image;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ToString.Exclude
+    @JsonBackReference
+    @ManyToOne
     @JoinColumn(name = "manufacturer_id")
     private Manufacturer manufacturer;
 

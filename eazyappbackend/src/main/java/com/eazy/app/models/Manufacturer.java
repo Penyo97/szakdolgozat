@@ -1,17 +1,15 @@
 package com.eazy.app.models;
 
-
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.*;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 @Entity
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
+@Table(name = "MANUFACTURER",schema = "public")
 public class Manufacturer {
 
     @Id
@@ -40,11 +38,13 @@ public class Manufacturer {
 
     private int close_time;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "employee_id")
-    private Set<Employee> employees;
+    @ToString.Exclude
+    @JsonManagedReference
+    @OneToMany(mappedBy = "manufacturer",cascade = CascadeType.ALL)
+    private List<Employee> employees;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "product_id")
-    private Set<Product>products;
+    @ToString.Exclude
+    @JsonManagedReference
+    @OneToMany(mappedBy = "manufacturer",cascade = CascadeType.ALL)
+    private List<Product>products;
 }

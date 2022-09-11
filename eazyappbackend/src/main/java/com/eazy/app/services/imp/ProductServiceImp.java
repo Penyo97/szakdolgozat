@@ -1,6 +1,7 @@
 package com.eazy.app.services.imp;
 
 import com.eazy.app.models.Product;
+import com.eazy.app.repositorys.ManufacturerRepository;
 import com.eazy.app.repositorys.ProductRepository;
 import com.eazy.app.services.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -16,9 +17,10 @@ public class ProductServiceImp implements ProductService {
     private final ProductRepository productRepository;
 
     @Override
-    public Set<Product> getProducts() {
+    public Set<Product> getProducts(Long id) {
+
         Set<Product> products = new HashSet<>();
-        productRepository.findAll().iterator().forEachRemaining(products::add);
+        productRepository.getProductsByManufacturer(id).iterator().forEachRemaining(products::add);
         return products;
     }
 

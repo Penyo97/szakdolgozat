@@ -31,6 +31,7 @@
             <column name="phone" type="VARCHAR(11)"/>
             <column name="manufacturer_id" type="BIGINT"/>
             <column name="position_id" type="BIGINT"/>
+            <column name="password" type="VARCHAR(50)"/>
         </createTable>
     </changeSet>
     <changeSet author="adam.petrik" id="1661886399260-4">

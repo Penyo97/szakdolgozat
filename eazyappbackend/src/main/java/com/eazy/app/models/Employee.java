@@ -1,16 +1,18 @@
 package com.eazy.app.models;
 
-import lombok.Getter;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
+@Table(name = "EMPLOYEE",schema = "public")
 public class Employee {
 
     @Id
@@ -33,16 +35,17 @@ public class Employee {
     @Column(length = 11)
     private String phone;
 
+    private Date hire_date;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ToString.Exclude
+    @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "manufacturer_id")
     private Manufacturer manufacturer;
 
+    @ToString.Exclude
+    @JsonBackReference
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "position_id")
     private Position position;
-
-    private Date hire_date;
-
-    private Date last_logged;
 }

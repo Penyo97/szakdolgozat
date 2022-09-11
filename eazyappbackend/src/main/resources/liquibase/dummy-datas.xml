@@ -37,4 +37,14 @@
             <column name="image" value="image"/>
         </insert>
     </changeSet>
+    <changeSet id="employee" author="adam.petrik">
+        <insert tableName="employee">
+            <column name="manufacturer_id" value="1"/>
+            <column name="first_name" value="Adam"/>
+            <column name="last_name" value="Petrik"/>
+            <column name="phone" value="06204475021"/>
+            <column name="mail" value="mail@gmail.com"/>
+            <column name="password" value="asdasd"/>
+        </insert>
+    </changeSet>
 </databaseChangeLog>
