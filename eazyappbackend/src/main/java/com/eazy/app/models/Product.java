@@ -18,9 +18,9 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private int sku;
+    private Integer sku;
 
-    private int product_group;
+    private Integer product_group;
 
     @Column(length = 100)
     private String name;
@@ -43,7 +43,7 @@ public class Product {
     @JoinColumn(name = "manufacturer_id")
     private Manufacturer manufacturer;
 
-    private int netto_price;
+    private Integer netto_price;
 
-    private int brutto_price;
+    private Integer brutto_price;
 }

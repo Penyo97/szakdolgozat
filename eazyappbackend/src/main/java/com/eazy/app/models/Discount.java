@@ -22,5 +22,5 @@ public class Discount {
     @JoinColumn(name = "product_id")
     private Product product;
 
-    private int discount;
+    private Integer discount;
 }

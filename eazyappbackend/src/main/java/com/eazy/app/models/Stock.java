@@ -28,7 +28,7 @@ public class Stock {
     @JoinColumn(name = "supplier_id")
     private Supplier supplier;
 
-    private int free;
+    private Integer free;
 
     private Date supplier_date;
 }

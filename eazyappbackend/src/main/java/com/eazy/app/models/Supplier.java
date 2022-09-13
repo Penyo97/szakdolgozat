@@ -25,7 +25,7 @@ public class Supplier {
     @Column(length = 100)
     private String street;
 
-    private int postal_code;
+    private Integer postal_code;
 
     @Column(length = 50)
     private String mail;

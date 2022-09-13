@@ -34,9 +34,9 @@ public class Manufacturer {
     @Column(length = 11)
     private String phone;
 
-    private int open_time;
+    private Integer open_time;
 
-    private int close_time;
+    private Integer close_time;
 
     @ToString.Exclude
     @JsonManagedReference

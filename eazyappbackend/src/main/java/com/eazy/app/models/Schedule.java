@@ -25,9 +25,9 @@ public class Schedule {
 
     private Date date;
 
-    private int start_hour;
+    private Integer start_hour;
 
-    private int end_hour;
+    private Integer end_hour;
 
-    private int duration;
+    private Integer duration;
 }

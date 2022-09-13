@@ -19,8 +19,7 @@ public class ProductController {
 
     @GetMapping(path = "/getProductByManufacturer/{id}")
     public Set<Product> getAllProduct(@PathVariable String id){
-        Long lid = Long.parseLong(id);
-        return productService.getProducts(lid);
+        return productService.getProducts(Long.parseLong(id));
     }
 
     @RequestMapping(value = "/getProductByCategory/{category}")
