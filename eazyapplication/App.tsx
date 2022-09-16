@@ -3,9 +3,10 @@ import Login from "./Screens/Login";
 import 'react-native-gesture-handler';
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import Map from "./Screens/Map";
-import CustomDrawer from "./Screens/CustomDrawer";
+import CustomDrawer from "./Components/CustomDrawer";
 import Explore from "./Screens/Explore";
 import Pub from "./Screens/Pub";
+import {MapContextProvider} from "./Context/MapContext";
 
 
 export type RootStackParamList = {
@@ -14,20 +15,23 @@ export type RootStackParamList = {
     DrawerScreen: undefined;
     ExploreScreen: undefined;
     PubScreen: undefined;
+    TabScreen: undefined;
 }
 
 export default function App() {
     const Stack = createNativeStackNavigator<RootStackParamList>();
     return (
-        <NavigationContainer>
-            <Stack.Navigator>
-                <Stack.Screen name="LoginScreen" component={Login} options={{headerShown: false}}/>
-                <Stack.Screen name="MapScreen" component={Map} options={{headerShown: false}}/>
-                <Stack.Screen name="ExploreScreen" component={Explore} options={{headerShown: false}}/>
-                <Stack.Screen name="DrawerScreen" component={CustomDrawer} options={{headerShown: false}}/>
-                <Stack.Screen name="PubScreen" component={Pub} options={{headerShown: false}}/>
-            </Stack.Navigator>
-        </NavigationContainer>
+        <MapContextProvider>
+            <NavigationContainer>
+                <Stack.Navigator>
+                    <Stack.Screen name="LoginScreen" component={Login} options={{headerShown: false}}/>
+                    <Stack.Screen name="DrawerScreen" component={CustomDrawer} options={{headerShown: false}}/>
+                    <Stack.Screen name="MapScreen" component={Map} options={{headerShown: false}}/>
+                    <Stack.Screen name="ExploreScreen" component={Explore} options={{headerShown: false}}/>
+                    <Stack.Screen name="PubScreen" component={Pub} options={{headerShown: false}}/>
+                </Stack.Navigator>
+            </NavigationContainer>
+        </MapContextProvider>
     );
 }
 

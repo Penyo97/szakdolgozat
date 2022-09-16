@@ -14,7 +14,6 @@ import {COLORS} from "../AppAssets";
 // @ts-ignore
 import logo from "../assets/ez_logo.png"
 import {Icon} from "@rneui/base";
-import {BottonNavbar} from "../Components";
 import ExploreBox from "../Components/ExploreBox";
 
 
@@ -129,7 +128,6 @@ const Explore = ({navigation}: any) => {
                       ListHeaderComponent={<FlatListHeader Headertext={"Klubok, Szórakozóhelyek"} Bottontext={"Bárok, Kocsmák"}/>}
                       contentContainerStyle={{ paddingBottom: 100 }}
             />
-            <BottonNavbar/>
         </View>
     );
 };

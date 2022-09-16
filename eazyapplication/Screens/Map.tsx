@@ -1,13 +1,12 @@
-import React, {useState, useEffect} from 'react';
-import {View, StyleSheet, TextInput, Dimensions, TouchableOpacity, Text, Alert} from "react-native";
+import React, {useState, useContext} from 'react';
+import {View, StyleSheet, TextInput, Dimensions, TouchableOpacity, Image, ActivityIndicator} from "react-native";
 import MapView, {Marker, Region} from 'react-native-maps';
-import {BottonNavbar} from "../Components";
-import {Icon} from "@rneui/base";
+import {Icon, ImageProps} from "@rneui/base";
 import {COLORS} from "../AppAssets";
 import Animated from "react-native-reanimated";
-import * as Location from 'expo-location';
 //@ts-ignore
 import logo from "../assets/ez_logo.png";
+import {MapContext} from "../Context/MapContext";
 
 const TopNavbar = ({navigation}: any) => {
     return (
@@ -25,25 +24,14 @@ const TopNavbar = ({navigation}: any) => {
 
 const Map = ({navigation}: any) => {
 
-    const [location, setLocation] = useState(null);
     const [zoomLevel, setZoomLevel] = useState<number>(0)
-
+    const {location} = useContext(MapContext);
 
     const zoomLevelCalculator = (region: Region) => {
         setZoomLevel(Math.log2(360 * ((Dimensions.get("screen").width / 256) / region.longitudeDelta)) + 1);
     }
 
-    useEffect(() => {
-        (async () => {
-            let {status} = await Location.requestForegroundPermissionsAsync();
-            if (status !== 'granted') {
-                return;
-            }
-            let location = await Location.getCurrentPositionAsync({});
-            // @ts-ignore
-            setLocation(location);
-        })();
-    }, []);
+    console.log(location)
 
     const region = {
         // @ts-ignore
@@ -54,41 +42,49 @@ const Map = ({navigation}: any) => {
         longitudeDelta: 0.0421,
     }
 
+    if (location == 0) {
+        return (
+            <View style={style.spinner}>
+                <ActivityIndicator size="large" color={COLORS.orange}/>
+            </View>
+        )
+    } else {
+        return (
+            <Animated.View>
+                <TopNavbar navigation={navigation}/>
+                <MapView
+                    onRegionChange={region => zoomLevelCalculator(region)}
+                    region={region} style={style.map}
+                >
+                    {zoomLevel > 15 &&
+                        (
+                            <Marker
 
-    return (
-        <Animated.View>
-            <TopNavbar navigation={navigation}/>
-            <MapView
-                onRegionChange={region => zoomLevelCalculator(region)}
-                region={region} style={style.map}
-            >
-                {zoomLevel > 16 &&
-                    (
-                        <Marker
-
-                            coordinate={{
-                                latitude: 47.432035,
-                                longitude: 18.911758,
-                            }}
-                            title={"proba"}
-                            description={"proba"}
-                        >
-                            <View style={{backgroundColor: "red", padding: 10}}>
-                                <Text>SF</Text>
-                            </View>
-                        </Marker>
-                    )
-                }
-            </MapView>
-            <BottonNavbar/>
-        </Animated.View>
-    );
+                                coordinate={{
+                                    latitude: 47.432035,
+                                    longitude: 18.911758,
+                                }}
+                                title={"proba"}
+                                description={"proba"}
+                            >
+                                <Image source={logo as unknown as ImageProps} style={style.image}/>
+                            </Marker>
+                        )
+                    }
+                </MapView>
+            </Animated.View>
+        );
+    }
 };
 
 export default Map;
 
 
 let style = StyleSheet.create({
+    spinner:{
+      flex:1,
+      justifyContent:"center"
+    },
     map: {
         height: Dimensions.get("screen").height
     },
@@ -119,4 +115,8 @@ let style = StyleSheet.create({
         justifyContent: "center",
         paddingLeft: 10
     },
+    image: {
+        height: 50,
+        width: 50
+    }
 })
