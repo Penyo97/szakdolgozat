@@ -5,10 +5,12 @@ import Explore from "../Screens/Explore";
 import {Icon} from "@rneui/base";
 import {COLORS} from "../AppAssets";
 import {Text} from "react-native";
+import Pub from "../Screens/Pub";
 
 export type TabStackParamList = {
     MapScreen: undefined;
     ExploreScreen: undefined;
+    PubScreen: undefined;
 }
 
 const Tab = createBottomTabNavigator<TabStackParamList>();
@@ -25,6 +27,7 @@ const TabsNavigation = () => {
             <Tab.Screen name="MapScreen" component={Map} options={{headerShown:false,
                 tabBarIcon: ({focused}) => (  <Icon name="map" color={focused ? COLORS.red: "grey"} type="font-awesome-5" size={25} />
                 ),tabBarLabel: ({focused}) => ( focused && <Text>Térkép</Text>)}}/>
+            <Tab.Screen name="PubScreen" component={Pub} options={{headerShown:false,tabBarButton:()=>null}} />
         </Tab.Navigator>
     );
 };

@@ -10,6 +10,7 @@ import MyProfile from "../Screens/MyProfile";
 import Map from "../Screens/Map";
 import Explore from "../Screens/Explore";
 import TabsNavigation from "./TabsNavigation";
+import Pub from "../Screens/Pub";
 
 
 export type DrawerStackParamList = {
@@ -17,6 +18,7 @@ export type DrawerStackParamList = {
     ExploreScreen: undefined;
     MyProfileScreen: undefined;
     TabNavigator: undefined;
+    PubScreen: undefined;
 }
 
 const Drawer = createDrawerNavigator<DrawerStackParamList>();
@@ -50,6 +52,8 @@ const CustomDrawer = () => {
             <Drawer.Screen name="TabNavigator" component={TabsNavigation}
                            options={{headerShown: false, drawerItemStyle: {height: 0}}}/>
             <Drawer.Screen name="MapScreen" component={Map}
+                           options={{headerShown: false, drawerItemStyle: {height: 0}}}/>
+            <Drawer.Screen name="PubScreen" component={Pub}
                            options={{headerShown: false, drawerItemStyle: {height: 0}}}/>
             <Drawer.Screen name="ExploreScreen" component={Explore}
                            options={{headerShown: false, drawerItemStyle: {height: 0}}}/>

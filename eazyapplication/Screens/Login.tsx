@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {Dimensions, Keyboard, StyleSheet, View, Text, Platform} from "react-native";
+import React, { useState} from 'react';
+import {Dimensions,StyleSheet, View, Text} from "react-native";
 import {LinearGradient} from "expo-linear-gradient"
 import {COLORS, SOCCOLORS} from "../AppAssets"
 import {Card, TextInput, Paragraph, Checkbox} from "react-native-paper";
@@ -16,38 +16,39 @@ const Login = () => {
         <View>
             <LinearGradient colors={[COLORS.red, COLORS.yellow]} style={styles.linear}>
                 <Paragraph style={styles.title}>Bejelentkezés</Paragraph>
-                <Card style={styles.card} mode="elevated" elevation={5}>
-                    <Card.Content>
-                        <Paragraph style={{color: "grey"}}>Azonosító vagy e-mail cím:</Paragraph>
-                        <TextInput style={styles.input} underlineColor={COLORS.red} activeUnderlineColor={COLORS.red}
-                                   value={mail}
-                                   onChangeText={(text) => {
-                                       setMail(text);
-                                   }}/>
-                        <Paragraph style={{paddingTop: 15, color: "grey"}}>Jelszó:</Paragraph>
-                        <TextInput style={styles.input} right={<TextInput.Icon name={"eye"} style={{color: "gray"}}/>}
-                                   underlineColor={COLORS.red} activeUnderlineColor={COLORS.red} value={password}
-                                   onChangeText={(text) => {
-                                       setPassword(text)
-                                   }}/>
-                        <Paragraph style={{paddingTop: 5, color: "grey", alignSelf: "flex-end"}}>Elfelejtett
-                            jelszó</Paragraph>
-                        <Checkbox.Item
-                            label={"Emlékezz rám"}
-                            status={checked ? 'checked' : 'unchecked'}
-                            onPress={() => {
-                                setChecked(!checked);
-                            }}
-                            color={COLORS.red}
-                            position={"leading"}
-                            style={{width: "55%", paddingLeft: -10}}
-                            labelStyle={{color: "grey", paddingLeft: -10}}
-                        />
-                        <Button buttonText={"bejelentkezés"} buttonColor={COLORS.yellow} buttonHeight={44}
-                                buttonWidth={"100%"} routeName="DrawerScreen"/>
-                    </Card.Content>
-                </Card>
+
             </LinearGradient>
+            <Card style={styles.card} mode="elevated" elevation={5}>
+                <Card.Content>
+                    <Paragraph style={{color: "grey"}}>Azonosító vagy e-mail cím:</Paragraph>
+                    <TextInput style={styles.input} underlineColor={COLORS.red} activeUnderlineColor={COLORS.red}
+                               value={mail}
+                               onChangeText={(text) => {
+                                   setMail(text);
+                               }}/>
+                    <Paragraph style={{paddingTop: 15, color: "grey"}}>Jelszó:</Paragraph>
+                    <TextInput style={styles.input} right={<TextInput.Icon name={"eye"} style={{color: "gray"}}/>}
+                               underlineColor={COLORS.red} activeUnderlineColor={COLORS.red} value={password}
+                               onChangeText={(text) => {
+                                   setPassword(text)
+                               }}/>
+                    <Paragraph style={{paddingTop: 5, color: "grey", alignSelf: "flex-end"}}>Elfelejtett
+                        jelszó</Paragraph>
+                    <Checkbox.Item
+                        label={"Emlékezz rám"}
+                        status={checked ? 'checked' : 'unchecked'}
+                        onPress={() => {
+                            setChecked(!checked);
+                        }}
+                        color={COLORS.red}
+                        position={"leading"}
+                        style={{width: "60%", paddingLeft: -10}}
+                        labelStyle={{color: "grey", paddingLeft: -10}}
+                    />
+                    <Button buttonText={"bejelentkezés"} buttonColor={COLORS.yellow} buttonHeight={44}
+                            buttonWidth={"100%"} routeName="DrawerScreen"/>
+                </Card.Content>
+            </Card>
             <View style={{paddingTop: 70, flexDirection: "row", justifyContent: "space-evenly"}}>
                 <SocialButton buttonText="Google" buttonColor={SOCCOLORS.google_col} buttonWidth="35%" buttonHeight={44}
                               buttonIcon="google" iconColor={COLORS.red} colorText={COLORS.red}/>
@@ -62,17 +63,18 @@ const Login = () => {
 
 const styles = StyleSheet.create({
     linear: {
-        height: (Dimensions.get("screen").height / 100) * (Platform.OS === 'ios' ? 72 : 65),
+        height: (Dimensions.get("screen").height / 100) * 67,
         borderBottomLeftRadius: 60,
         borderBottomRightRadius: 60,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "flex-end",
+        justifyContent: "flex-start",
     },
     card: {
-        height: "70%",
+        height: "54%",
         width: "80%",
         marginBottom: "-10%",
+        position:"absolute",
+        alignSelf:"center",
+        top:"25%",
     },
     input: {
         height: 50,
@@ -85,7 +87,9 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         alignSelf: "flex-start",
         paddingLeft: "10%",
-        paddingBottom: 27
+        paddingBottom: 27,
+        alignItems:"flex-start",
+        paddingTop:Dimensions.get("screen").height/8
     },
     reg_text:{
         paddingTop:30,

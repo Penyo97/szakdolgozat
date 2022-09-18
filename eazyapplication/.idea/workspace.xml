@@ -5,16 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4863284-cbb2-4ec5-b3c5-f49de3511ecd" name="Changes" comment="create MapContext.tsx and MyProfile.tsx and TabsNavigation.tsx and modify these classes">
-      <change afterPath="$PROJECT_DIR$/Components/TabsNavigation.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Context/MapContext.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Screens/MyProfile.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Components/ProductCard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pub.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Screens/CustomDrawer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/CustomDrawer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Screens/Explore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/Explore.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/CustomDrawer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/CustomDrawer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/TabsNavigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/TabsNavigation.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Screens/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/Login.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Screens/Map.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/Map.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Screens/Pub.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/Pub.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +63,7 @@
       <recent name="C:\Users\Petrik\Documents\eazy\eazyapplication\assets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Petrik\Documents\eazy\eazyapplication\assets" />
       <recent name="C:\Users\Petrik\Documents\eazy\eazyapplication\Components" />
     </key>
   </component>
@@ -144,7 +143,8 @@
       <workItem from="1660587397468" duration="7722000" />
       <workItem from="1661712180128" duration="9762000" />
       <workItem from="1662891104548" duration="678000" />
-      <workItem from="1663335005655" duration="7932000" />
+      <workItem from="1663335005655" duration="8013000" />
+      <workItem from="1663520506162" duration="7949000" />
     </task>
     <task id="LOCAL-00001" summary="Create Login.tsx menu">
       <created>1658329494295</created>
@@ -237,7 +237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661722078458</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="create MapContext.tsx and MyProfile.tsx and TabsNavigation.tsx and modify these classes">
+      <created>1663343025950</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1663343025950</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

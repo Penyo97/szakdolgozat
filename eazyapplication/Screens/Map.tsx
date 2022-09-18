@@ -31,8 +31,6 @@ const Map = ({navigation}: any) => {
         setZoomLevel(Math.log2(360 * ((Dimensions.get("screen").width / 256) / region.longitudeDelta)) + 1);
     }
 
-    console.log(location)
-
     const region = {
         // @ts-ignore
         latitude: location?.coords?.latitude,
