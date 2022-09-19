@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4863284-cbb2-4ec5-b3c5-f49de3511ecd" name="Changes" comment="create MapContext.tsx and MyProfile.tsx and TabsNavigation.tsx and modify these classes">
-      <change afterPath="$PROJECT_DIR$/Components/ProductCard.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/pub.jpg" afterDir="false" />
+    <list default="true" id="e4863284-cbb2-4ec5-b3c5-f49de3511ecd" name="Changes" comment="rewrite Login.tsx and create ProductCard.tsx and modify TabsNavigation.tsx,&#10;CustomDrawer.tsx, Pub.tsx, Map.tsx">
+      <change afterPath="$PROJECT_DIR$/Components/PubHeader.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/CustomDrawer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/CustomDrawer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/TabsNavigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/TabsNavigation.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Screens/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/Login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Screens/Map.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/Map.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/ProductCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/ProductCard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Screens/Pub.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/Pub.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -144,7 +140,8 @@
       <workItem from="1661712180128" duration="9762000" />
       <workItem from="1662891104548" duration="678000" />
       <workItem from="1663335005655" duration="8013000" />
-      <workItem from="1663520506162" duration="7949000" />
+      <workItem from="1663520506162" duration="8073000" />
+      <workItem from="1663605321930" duration="4501000" />
     </task>
     <task id="LOCAL-00001" summary="Create Login.tsx menu">
       <created>1658329494295</created>
@@ -244,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663343025950</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="rewrite Login.tsx and create ProductCard.tsx and modify TabsNavigation.tsx,&#10;CustomDrawer.tsx, Pub.tsx, Map.tsx">
+      <created>1663531651155</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1663531651155</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,6 +279,7 @@
     <MESSAGE value="make new route and modify ExploreBox.tsx css" />
     <MESSAGE value="delete unused import" />
     <MESSAGE value="create MapContext.tsx and MyProfile.tsx and TabsNavigation.tsx and modify these classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="create MapContext.tsx and MyProfile.tsx and TabsNavigation.tsx and modify these classes" />
+    <MESSAGE value="rewrite Login.tsx and create ProductCard.tsx and modify TabsNavigation.tsx,&#10;CustomDrawer.tsx, Pub.tsx, Map.tsx" />
+    <option name="LAST_COMMIT_MESSAGE" value="rewrite Login.tsx and create ProductCard.tsx and modify TabsNavigation.tsx,&#10;CustomDrawer.tsx, Pub.tsx, Map.tsx" />
   </component>
 </project>
