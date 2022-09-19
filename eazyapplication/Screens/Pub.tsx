@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import {
     View,
-    FlatList
+    FlatList,
+    Animated
 } from "react-native";
 import ProductCard from "../Components/ProductCard";
 import PubHeader from "../Components/PubHeader";
@@ -48,6 +49,8 @@ const list = [
 
 const Pub = ({route, navigation}: any) => {
     const {id} = route.params;
+
+    const [showLittleHeader,setShoeLittleHeader] =useState<boolean>(false);
     return (
         <View>
             <FlatList

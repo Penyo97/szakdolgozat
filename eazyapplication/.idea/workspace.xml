@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4863284-cbb2-4ec5-b3c5-f49de3511ecd" name="Changes" comment="rewrite Login.tsx and create ProductCard.tsx and modify TabsNavigation.tsx,&#10;CustomDrawer.tsx, Pub.tsx, Map.tsx">
-      <change afterPath="$PROJECT_DIR$/Components/PubHeader.tsx" afterDir="false" />
+    <list default="true" id="e4863284-cbb2-4ec5-b3c5-f49de3511ecd" name="Changes" comment="finish Pub.tsx and create ProductCard.tsx and PubHeader.tsx">
+      <change afterPath="$PROJECT_DIR$/Components/FilterModal.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/ProductCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/ProductCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Screens/Explore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/Explore.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Screens/Pub.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/Pub.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -141,7 +141,7 @@
       <workItem from="1662891104548" duration="678000" />
       <workItem from="1663335005655" duration="8013000" />
       <workItem from="1663520506162" duration="8073000" />
-      <workItem from="1663605321930" duration="4501000" />
+      <workItem from="1663605321930" duration="9953000" />
     </task>
     <task id="LOCAL-00001" summary="Create Login.tsx menu">
       <created>1658329494295</created>
@@ -248,7 +248,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663531651155</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="finish Pub.tsx and create ProductCard.tsx and PubHeader.tsx">
+      <created>1663610279084</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1663610279084</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,6 +287,7 @@
     <MESSAGE value="delete unused import" />
     <MESSAGE value="create MapContext.tsx and MyProfile.tsx and TabsNavigation.tsx and modify these classes" />
     <MESSAGE value="rewrite Login.tsx and create ProductCard.tsx and modify TabsNavigation.tsx,&#10;CustomDrawer.tsx, Pub.tsx, Map.tsx" />
-    <option name="LAST_COMMIT_MESSAGE" value="rewrite Login.tsx and create ProductCard.tsx and modify TabsNavigation.tsx,&#10;CustomDrawer.tsx, Pub.tsx, Map.tsx" />
+    <MESSAGE value="finish Pub.tsx and create ProductCard.tsx and PubHeader.tsx" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish Pub.tsx and create ProductCard.tsx and PubHeader.tsx" />
   </component>
 </project>

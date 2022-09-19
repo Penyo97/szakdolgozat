@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {LinearGradient} from "expo-linear-gradient"
 import {
     View,
@@ -15,6 +15,7 @@ import {COLORS} from "../AppAssets";
 import logo from "../assets/ez_logo.png"
 import {Icon} from "@rneui/base";
 import ExploreBox from "../Components/ExploreBox";
+import FilterModal from "../Components/FilterModal";
 
 
 const DATA = [
@@ -55,9 +56,9 @@ interface flatlistHeaderInterface {
 const FlatListHeader = ({Headertext, Bottontext}: flatlistHeaderInterface) => {
     return (
         <View style={{marginLeft: Dimensions.get("screen").width / 20, paddingTop: 15, paddingBottom: 15}}>
-            <View style={{flexDirection:"row",justifyContent:"space-between",marginRight:20}}>
-            <Text style={{fontSize: 18, color: "grey"}}>{Headertext}</Text>
-            <Icon name="arrow-right" color={"grey"} type="font-awesome-5" size={25} style={{paddingRight: 5}}/>
+            <View style={{flexDirection: "row", justifyContent: "space-between", marginRight: 20}}>
+                <Text style={{fontSize: 18, color: "grey"}}>{Headertext}</Text>
+                <Icon name="arrow-right" color={"grey"} type="font-awesome-5" size={25} style={{paddingRight: 5}}/>
             </View>
             <FlatList data={DATA}
                       renderItem={(item) =>
@@ -77,7 +78,7 @@ const FlatListHeader = ({Headertext, Bottontext}: flatlistHeaderInterface) => {
                       horizontal={true}
                       showsHorizontalScrollIndicator={false}
             />
-            <View style={{flexDirection:"row",justifyContent:"space-between",marginRight:20}}>
+            <View style={{flexDirection: "row", justifyContent: "space-between", marginRight: 20}}>
                 <Text style={{fontSize: 18, color: "grey"}}>{Bottontext}</Text>
                 <Icon name="arrow-down" color={"grey"} type="font-awesome-5" size={25} style={{paddingRight: 5}}/>
             </View>
@@ -87,6 +88,8 @@ const FlatListHeader = ({Headertext, Bottontext}: flatlistHeaderInterface) => {
 
 
 const Explore = ({navigation}: any) => {
+
+    const [showFilterModal,setFilterModal] = useState<boolean>(false);
 
     return (
         <View style={style.container}>
@@ -98,7 +101,7 @@ const Explore = ({navigation}: any) => {
                     </TouchableOpacity>
                 </View>
                 <View style={style.inputbox}>
-                    <Icon name="search" color="#fff" type="font-awesome-5" size={25}/>
+                    <Icon name="search" color="#fff" type="font-awesome-5" size={25} onPress={() => setFilterModal(true)}/>
                     <TextInput style={style.input} placeholder="Hely, termék vagy szolgáltatás keresése..."
                                placeholderTextColor="#fff" selectionColor="#fff"/>
                 </View>
@@ -109,6 +112,9 @@ const Explore = ({navigation}: any) => {
                     <Text style={{color: "#fff"}}>Események</Text>
                 </View>
             </LinearGradient>
+            {showFilterModal &&
+                <FilterModal isVisible={showFilterModal} onClose={() => setFilterModal(false)}/>
+            }
             <FlatList data={DATA}
                       renderItem={(item) =>
                           <ExploreBox
@@ -125,8 +131,9 @@ const Explore = ({navigation}: any) => {
                       }
                       keyExtractor={item => item.id}
                       showsHorizontalScrollIndicator={false}
-                      ListHeaderComponent={<FlatListHeader Headertext={"Klubok, Szórakozóhelyek"} Bottontext={"Bárok, Kocsmák"}/>}
-                      contentContainerStyle={{ paddingBottom: 100 }}
+                      ListHeaderComponent={<FlatListHeader Headertext={"Klubok, Szórakozóhelyek"}
+                                                           Bottontext={"Bárok, Kocsmák"}/>}
+                      contentContainerStyle={{paddingBottom: 100}}
             />
         </View>
     );
