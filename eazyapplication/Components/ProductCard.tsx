@@ -10,20 +10,27 @@ interface pubcardInterface {
     description:string,
     price: number,
     size:number,
+    addBasket: (title: string) => void
 }
 
 interface buttonInterface {
-    price:number
+    price:number,
+    title:string,
+    addBasket: (title: string) => void
 }
-const Button = ({price}:buttonInterface) =>{
+
+
+
+
+const Button = ({price,title,addBasket}:buttonInterface) =>{
     return(
-        <TouchableOpacity style={style.button}>
+        <TouchableOpacity style={style.button} onPress={() => addBasket(title)}>
         <Text style={style.buttontext}>{price} Ft</Text>
         </TouchableOpacity>
     );
 }
 
-const ProductCard = ({title,description,price,size}:pubcardInterface) => {
+const ProductCard = ({title,description,price,size,addBasket}:pubcardInterface) => {
     return (
         <View style={style.CardContainer}>
             <Image source={logo} style={style.image}/>
@@ -31,7 +38,7 @@ const ProductCard = ({title,description,price,size}:pubcardInterface) => {
              <Text>{title}</Text>
              <Text>{description}</Text>
              <View style={style.buttonBox}>
-                 <Button price={price}/>
+                 <Button price={price} title={title} addBasket={addBasket}/>
                  <Text style={style.size}>({size}ml)</Text>
              </View>
          </View>
