@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4863284-cbb2-4ec5-b3c5-f49de3511ecd" name="Changes" comment="create modal and modify some classes">
-      <change afterPath="$PROJECT_DIR$/Context/BasketContext.tsx" afterDir="false" />
+    <list default="true" id="e4863284-cbb2-4ec5-b3c5-f49de3511ecd" name="Changes" comment="create new Contexr add basket logic">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Components/ProductCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/ProductCard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Screens/Pub.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/Pub.tsx" afterDir="false" />
     </list>
@@ -143,7 +141,8 @@
       <workItem from="1663335005655" duration="8013000" />
       <workItem from="1663520506162" duration="8073000" />
       <workItem from="1663605321930" duration="10179000" />
-      <workItem from="1663935174114" duration="5372000" />
+      <workItem from="1663935174114" duration="5411000" />
+      <workItem from="1664005424448" duration="5401000" />
     </task>
     <task id="LOCAL-00001" summary="Create Login.tsx menu">
       <created>1658329494295</created>
@@ -264,7 +263,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663618123409</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="create new Contexr add basket logic">
+      <created>1663940679785</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1663940679785</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,6 +304,7 @@
     <MESSAGE value="rewrite Login.tsx and create ProductCard.tsx and modify TabsNavigation.tsx,&#10;CustomDrawer.tsx, Pub.tsx, Map.tsx" />
     <MESSAGE value="finish Pub.tsx and create ProductCard.tsx and PubHeader.tsx" />
     <MESSAGE value="create modal and modify some classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="create modal and modify some classes" />
+    <MESSAGE value="create new Contexr add basket logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="create new Contexr add basket logic" />
   </component>
 </project>

@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useRef, useState} from 'react';
 import {
     View,
     FlatList,
@@ -53,6 +53,7 @@ const Pub = ({route, navigation}: any) => {
     const [showLittleHeader, setShoeLittleHeader] = useState<boolean>(false);
     const {manufacturerId, setManufacturerId, basket} = useContext(BasketContext);
     const [visible, setVisible] = useState(false);
+    const pubCardRef = useRef(null);
 
     const hideDialog = () => setVisible(false);
 
@@ -95,6 +96,7 @@ const Pub = ({route, navigation}: any) => {
                 />}
                 keyExtractor={item => item.prodid}
                 ListHeaderComponent={<PubHeader id={id} navigation={navigation}/>}
+                ref={pubCardRef}
             />
         </View>
     );
