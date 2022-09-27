@@ -53,19 +53,18 @@ const Pub = ({route, navigation}: any) => {
     const [showLittleHeader, setShoeLittleHeader] = useState<boolean>(false);
     const {manufacturerId, setManufacturerId, basket} = useContext(BasketContext);
     const [visible, setVisible] = useState(false);
-    const pubCardRef = useRef(null);
 
     const hideDialog = () => setVisible(false);
 
-    const addBasket = (title:string) => {
+    const addBasket = (prodName:string) => {
         if(id != manufacturerId ) {
             setVisible(true);
             basket.length = 0;
         }
-        let product= list.find( prod => prod.title = title);
+        let product= list.find( prod => prod.title.valueOf() === prodName);
         setManufacturerId(id);
-        if (basket.some(prod => prod.product_name == title)) {
-            basket.find(prod => prod.product_name == title)!.product_count += 1;
+        if (basket.some(prod => prod.product_name.valueOf() === prodName)) {
+            basket.find(prod => prod.product_name.valueOf() === prodName)!.product_count += 1;
         }
         else {
             basket.push({
@@ -79,7 +78,7 @@ const Pub = ({route, navigation}: any) => {
             });
         }
 
-    console.log(basket)
+      console.log(basket)
     }
 
     return (
@@ -95,8 +94,8 @@ const Pub = ({route, navigation}: any) => {
                     addBasket={addBasket}
                 />}
                 keyExtractor={item => item.prodid}
+                extraData={list}
                 ListHeaderComponent={<PubHeader id={id} navigation={navigation}/>}
-                ref={pubCardRef}
             />
         </View>
     );

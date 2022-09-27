@@ -18,9 +18,9 @@ interface buttonInterface {
 }
 
 interface titleButton {
-    text:string,
-    color:string,
-    title:string
+    text: string,
+    color: string,
+    title: string
 }
 
 const Button = ({price}: buttonInterface) => {
@@ -32,53 +32,51 @@ const Button = ({price}: buttonInterface) => {
 }
 
 
-
-
 const ProductCard = ({title, description, price, size, addBasket}: pubcardInterface) => {
     const [press, setPress] = useState(false);
-    const [count,setCount] = useState(0);
+    const [count, setCount] = useState(0);
     const {basket} = useContext(BasketContext);
 
-
-
-    const modifyText = (text: string,title: string) => {
-        if (text === "-"){
-            if (basket.some(prod => prod.product_name != title)) {
-                setPress(false);
-            }
-            else {
-                if (basket.find(prod => prod.product_name == title)!.product_count != 0) {
-                    basket.find(prod => prod.product_name == title)!.product_count -= 1;
-                    setCount(count - 1)
-                } else {
+    const modifyText = (text: string, title: string) => {
+        if (text === "-") {
+            if (basket.find(prod => prod.product_name.valueOf() === title)!.product_count > 0) {
+                setCount(count - 1)
+                basket.find(prod => prod.product_name.valueOf() === title)!.product_count -= 1;
+                if (basket.find(prod => prod.product_name.valueOf() === title)!.product_count == 0) {
                     setPress(false)
                 }
+            } else {
+                setPress(false)
             }
-        }
-        else {
-                addBasket(title);
-                setCount(count+1)
+
+        } else {
+            addBasket(title);
+            setCount(count + 1)
         }
     }
 
-    const CircleButtons = ({text,color,title}:titleButton) =>{
-        return(
-            <TouchableOpacity style={[style.circleButton,{backgroundColor:color}]} onPress={() => modifyText(text,title)}>
-                <Text style={[{fontSize:20,textAlign:"center"},color === "transparent" ? {color:COLORS.red} : {color: "#fff"}]}>{text}</Text>
+    const CircleButtons = ({text, color, title}: titleButton) => {
+        return (
+            <TouchableOpacity style={[style.circleButton, {backgroundColor: color}]}
+                              onPress={() => modifyText(text, title)}>
+                <Text style={[{
+                    fontSize: 20,
+                    textAlign: "center"
+                }, color === "transparent" ? {color: COLORS.red} : {color: "#fff"}]}>{text}</Text>
             </TouchableOpacity>
         )
     }
 
     return (
         <TouchableOpacity style={[style.CardContainer, press && {backgroundColor: "rgba(131,232,186,0.37)"}]}
-                          onPress={() => setPress(true)} >
+                          onPress={() => setPress(true)}>
             <View>
                 <Image source={logo} style={style.image}/>
                 {
                     press &&
                     <View style={style.countContainer}>
                         <CircleButtons text={"-"} color={"transparent"} title={title}/>
-                        <Text>{ count}</Text>
+                        <Text>{count}</Text>
                         <CircleButtons text={"+"} color={COLORS.red} title={title}/>
                     </View>
                 }
@@ -87,7 +85,7 @@ const ProductCard = ({title, description, price, size, addBasket}: pubcardInterf
                 <Text>{title}</Text>
                 <Text>{description}</Text>
                 <View style={style.buttonBox}>
-                    <Button price={price} />
+                    <Button price={price}/>
                     <Text style={style.size}>({size}ml)</Text>
                 </View>
             </View>
@@ -139,18 +137,18 @@ const style = StyleSheet.create({
         color: COLORS.yellow,
         fontSize: 16
     },
-    circleButton:{
-        borderWidth:1,
-        height:35,
-        width:35,
-        borderRadius:50,
-        justifyContent:'center',
-        borderColor:COLORS.red,
+    circleButton: {
+        borderWidth: 1,
+        height: 35,
+        width: 35,
+        borderRadius: 50,
+        justifyContent: 'center',
+        borderColor: COLORS.red,
     },
-    countContainer:{
-        flexDirection:"row",
-        justifyContent:"space-between",
-        paddingTop:20,
-        alignItems:"center"
+    countContainer: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        paddingTop: 20,
+        alignItems: "center"
     }
 });

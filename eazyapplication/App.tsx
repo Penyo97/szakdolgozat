@@ -8,6 +8,7 @@ import Explore from "./Screens/Explore";
 import Pub from "./Screens/Pub";
 import {MapContextProvider} from "./Context/MapContext";
 import {BasketContextProvider} from "./Context/BasketContext";
+import Tray from "./Screens/Tray";
 
 
 export type RootStackParamList = {
@@ -17,6 +18,7 @@ export type RootStackParamList = {
     ExploreScreen: undefined;
     PubScreen: undefined;
     TabScreen: undefined;
+    TrayScreen: undefined;
 }
 
 export default function App() {
@@ -31,6 +33,7 @@ export default function App() {
                         <Stack.Screen name="MapScreen" component={Map} options={{headerShown: false}}/>
                         <Stack.Screen name="ExploreScreen" component={Explore} options={{headerShown: false}}/>
                         <Stack.Screen name="PubScreen" component={Pub} options={{headerShown: false}}/>
+                        <Stack.Screen name="TrayScreen" component={Tray} options={{headerShown: false}}/>
                     </Stack.Navigator>
                 </NavigationContainer>
             </MapContextProvider>
