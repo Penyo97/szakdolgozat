@@ -9,6 +9,7 @@ import Pub from "./Screens/Pub";
 import {MapContextProvider} from "./Context/MapContext";
 import {BasketContextProvider} from "./Context/BasketContext";
 import Tray from "./Screens/Tray";
+import Tip from "./Screens/Tip";
 
 
 export type RootStackParamList = {
@@ -19,6 +20,7 @@ export type RootStackParamList = {
     PubScreen: undefined;
     TabScreen: undefined;
     TrayScreen: undefined;
+    TipScreen: undefined;
 }
 
 export default function App() {
@@ -34,6 +36,7 @@ export default function App() {
                         <Stack.Screen name="ExploreScreen" component={Explore} options={{headerShown: false}}/>
                         <Stack.Screen name="PubScreen" component={Pub} options={{headerShown: false}}/>
                         <Stack.Screen name="TrayScreen" component={Tray} options={{headerShown: false}}/>
+                        <Stack.Screen name="TipScreen" component={Tip} options={{headerShown: false}}/>
                     </Stack.Navigator>
                 </NavigationContainer>
             </MapContextProvider>

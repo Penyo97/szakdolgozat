@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4863284-cbb2-4ec5-b3c5-f49de3511ecd" name="Changes" comment="create product number counter">
-      <change afterPath="$PROJECT_DIR$/Screens/Tray.tsx" afterDir="false" />
+    <list default="true" id="e4863284-cbb2-4ec5-b3c5-f49de3511ecd" name="Changes" comment="make Tray.tsx and bug fixes">
+      <change afterPath="$PROJECT_DIR$/Screens/Tip.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/ProductCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/ProductCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/TabsNavigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/TabsNavigation.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Screens/Pub.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/Pub.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Screens/Tray.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/Tray.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +73,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="npm.android">
+  <component name="RunManager" selected="npm.start">
     <configuration name="android" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -147,7 +147,9 @@
       <workItem from="1663935174114" duration="5411000" />
       <workItem from="1664005424448" duration="6255000" />
       <workItem from="1664297995310" duration="5489000" />
-      <workItem from="1664304945237" duration="5936000" />
+      <workItem from="1664304945237" duration="6564000" />
+      <workItem from="1664472083429" duration="3516000" />
+      <workItem from="1664477045410" duration="1480000" />
     </task>
     <task id="LOCAL-00001" summary="Create Login.tsx menu">
       <created>1658329494295</created>
@@ -282,7 +284,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664011112170</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="make Tray.tsx and bug fixes">
+      <created>1664313210675</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1664313210675</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -318,6 +327,7 @@
     <MESSAGE value="create modal and modify some classes" />
     <MESSAGE value="create new Contexr add basket logic" />
     <MESSAGE value="create product number counter" />
-    <option name="LAST_COMMIT_MESSAGE" value="create product number counter" />
+    <MESSAGE value="make Tray.tsx and bug fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="make Tray.tsx and bug fixes" />
   </component>
 </project>

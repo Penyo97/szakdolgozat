@@ -7,6 +7,8 @@ import logo from "../assets/ez_logo.png";
 import {Button, Icon} from "@rneui/base";
 import {BasketContext} from "../Context/BasketContext";
 import { DataTable } from 'react-native-paper';
+import {useNavigation} from "@react-navigation/native";
+import {RootStackParamList} from "../App";
 
 interface whiteButtonInterface {
     id: string,
@@ -26,7 +28,7 @@ const WhiteButton = ({id, text, select, setSelect}: whiteButtonInterface) => {
 
 const Basket = () => {
     const {basket} = useContext(BasketContext);
-
+    const navigate = useNavigation();
     return (
         <View style={style.basket}>
             {basket.length == 0 ? (
@@ -52,7 +54,9 @@ const Basket = () => {
                         )
                     })}
                         <View style={{paddingTop:20,paddingBottom:20}}/>
-                        <Button color={"warning"} radius={25} title={"Tovább a rendeléshez"}/>
+                        <Button color={"warning"} radius={25} title={"Tovább a rendeléshez"} onPress={() => {
+                            // @ts-ignore
+                            navigate.navigate<RootStackParamList>("TipScreen")}}/>
                     </DataTable>
             )}
         </View>
@@ -62,8 +66,6 @@ const Basket = () => {
 
 const Tray = ({navigation}: any) => {
     const [select, setSelect] = useState<string>("2")
-    const {basket} = useContext(BasketContext);
-
     return (
         <View>
             <LinearGradient colors={[COLORS.red, COLORS.yellow]} style={style.header}>
