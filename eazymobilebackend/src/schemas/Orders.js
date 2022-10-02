@@ -1,11 +1,11 @@
 import mongoose from "mongoose"
 
 
-const ordersSchema = mongoose.Schema({
+const rentsSchema = mongoose.Schema({
     id: Number,
     Name: String,
     Count: Number,
     Price: Number
 })
 
-export default ordersSchema;
+export default rentsSchema;
