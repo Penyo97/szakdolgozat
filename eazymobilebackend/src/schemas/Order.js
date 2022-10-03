@@ -1,14 +1,14 @@
 import mongoose from "mongoose"
-import ordersSchema from "./Orders";
-import pubSchema from "./Pub";
-import userSchema from "./User";
+import rentsSchema from "./Orders.js";
+import pubSchema from "./Pub.js";
+import userSchema from "./User.js";
 
 
 const orderSchema = mongoose.Schema({
     id: Number,
     User: userSchema,
     Pub: pubSchema,
-    Orders: [ordersSchema],
+    Rents: [{order: rentsSchema}],
     Order_date: Date,
     Status: String
 })
