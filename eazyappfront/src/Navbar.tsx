@@ -21,7 +21,7 @@ const Navbar = () => {
         textDecoration: "none",
     }
 
-    let checker = (url:String): Boolean => {
+    const checker = (url:String): Boolean => {
         return location.pathname === url;
     }
 

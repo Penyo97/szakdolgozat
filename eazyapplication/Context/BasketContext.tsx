@@ -46,4 +46,4 @@ const BasketContextProvider = ({children}: any) => {
     )
 }
 
-export {BasketContext, BasketContextProvider}
+export {BasketContext, BasketContextProvider,BasketInterface}
