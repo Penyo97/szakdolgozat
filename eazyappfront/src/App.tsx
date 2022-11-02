@@ -1,21 +1,24 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Routes, Route, useNavigate} from 'react-router-dom'
 import Navbar from "./Navbar";
 import Stock from "./Pages/Stock";
 import "./App.css"
 import Orders from "./Pages/Orders";
 import Login from "./Pages/Auth/Login";
-import {AuthContextProvider,AuthContext} from "./Context/AuthContextProvider";
+import {AuthContext, AuthContextProvider} from "./Context/AuthContextProvider";
 function App() {
     const navigate = useNavigate();
-    const [auth,setAuth] = useState<boolean>(false)
+    useEffect(()=>{
+        if (!sessionStorage.getItem("auth")) {
+            navigate("/login");
+        }
+    },[])
     return (
         <div className="App__Container">
-            {auth && <Navbar/> }
+            {sessionStorage.getItem("auth") && <Navbar/> }
             <AuthContextProvider>
-                {auth && navigate("/orders")}
             <Routes>
-                <Route path={"/login"} element={<Login setAuth={setAuth}/>}/>
+                <Route path={"/login"} element={<Login />}/>
                 <Route path={"/stock"} element={<Stock/>}/>
                 <Route path={"/orders"} element={<Orders/>}/>
             </Routes>

@@ -7,9 +7,11 @@ import axios from "axios";
 import {AuthContext} from "../../Context/AuthContextProvider";
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import {useNavigate} from "react-router-dom";
 
 const MySwal = withReactContent(Swal)
-const Login = ({setAuth}:any) => {
+const Login = () => {
+    const navigate = useNavigate();
 
     const [mail, setMail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
@@ -20,7 +22,8 @@ const Login = ({setAuth}:any) => {
             "password": password
         }).then(res => {
                 setIsLogged(res.data as boolean)
-                setAuth(res.data as boolean)
+                sessionStorage.setItem("auth",res.data)
+                res.data && navigate("/orders")
                 res.data ? (
                     MySwal.fire({
                         icon: 'success',

@@ -118,7 +118,7 @@ const Orders = () => {
                                         style={{
                                             background: snapshot.isDraggingOver ? 'lightblue' : 'lightgrey',
                                             padding: 4,
-                                            width: 250,
+                                            width: '25vw',
                                             minHeight: 500
                                         }}
                                     >
