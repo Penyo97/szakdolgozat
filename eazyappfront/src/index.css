@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "Skylar";
+  src: url("/src/Assets/SkylarSans.otf") format("opentype");
+}
+
 *{
   margin: 0;
+  font-family: "Skylar" !important;
 }
