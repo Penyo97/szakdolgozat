@@ -8,7 +8,7 @@ const orderSchema = mongoose.Schema({
     id: Number,
     User: userSchema,
     Pub: pubSchema,
-    Rents: [{order: rentsSchema}],
+    Rents: [rentsSchema],
     Order_date: Date,
     Status: String
 })

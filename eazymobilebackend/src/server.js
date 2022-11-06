@@ -23,29 +23,30 @@ app.get("/", (req, res) => {
     res.send("Eazy");
 })
 
-app.post("/insert/order", (req, res) => {
-    const {userid, firstName, lastName, userName, email, poins} = req.body.User;
-    let user = User.find({id: userid});
-    if (user === undefined) {
-        user = User.create({
+
+app.post("/insert/order", async(req, res) => {
+    const {userid, First_Name, Last_Name, User_Name, Email, Poins} = req.body.User;
+    let user = await  User.findOne({id: userid}).select("id First_Name Last_Name User_Name Email Poins").lean();
+    if (user == null) {
+        User.create([{
             id: userid,
-            First_Name: firstName,
-            Last_Name: lastName,
-            User_Name: userName,
-            Email: email,
-            Poins: poins
-        });
+            First_Name: First_Name,
+            Last_Name: Last_Name,
+            User_Name: User_Name,
+            Email: Email,
+            Poins: Poins
+        }]).then((result) => res.status(200).send(result))
+            .catch((err) => res.status(400).send(err));
     }
     const {id} = req.body
-    const [{order}] = req.body.Rents;
+    let orders = [];
+    for (const index in req.body.Rents) {
+        orders.push(req.body.Rents[index]);
+    }
     Order.create({
         id: id,
-        User: {user},
-        Rents: [
-            {
-                order: order
-            }
-        ],
+        User: user,
+        Rents: orders,
         Order_date: Date.now(),
         Status: "Pending"
     })
