@@ -1,10 +1,11 @@
 import express from "express";
 import mongoose from "mongoose";
-import {Order, User} from "./models.js"
-
+import {Order, User,Orders} from "./models.js"
+import cors from 'cors'
 const app = express();
 app.use(express.json());
-const port = 3000;
+app.use(cors())
+const port = 4000;
 
 const mongo_url = "mongodb://localhost:27017/eazy";
 
@@ -21,6 +22,12 @@ mongoose.connect(
 
 app.get("/", (req, res) => {
     res.send("Eazy");
+})
+
+app.get("/getOrders",(req,res)=> {
+    Orders.find({}, (err, orders) => {
+        res.status(200).send(orders);
+    });
 })
 
 
