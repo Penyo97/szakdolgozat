@@ -23,6 +23,7 @@ const Login = () => {
         }).then(res => {
                 let logged: boolean = res.data.toString().split(',')[0] as boolean;
                 let position: string = res.data.toString().split(',')[1]
+                console.log(res.data.toString().split(',')[1])
                 setIsLogged(logged)
                 sessionStorage.setItem("auth", logged.toString())
                 sessionStorage.setItem("position",position);

@@ -13,7 +13,7 @@ import {
     faFilter,
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
-
+import Button from '@mui/material/Button';
 interface ProductInt {
     name: string,
     sku: number,
@@ -28,7 +28,7 @@ interface ProductInt {
 
 const Stock = () => {
 
-    const [product,setProduct] = useState<Array<ProductInt>>([]);
+    const [product, setProduct] = useState<Array<ProductInt>>([]);
 
     const getProduct = async () => {
         let prod: Array<ProductInt> = [];
@@ -51,19 +51,20 @@ const Stock = () => {
             }).catch(err => console.log(err))
     }
 
-    useEffect( () => {
-         getProduct();
+    useEffect(() => {
+        getProduct();
     }, [])
+    console.log(sessionStorage.getItem("position"))
     return (
         <div>
-            <h1 >Stock</h1>
+            <h1>Stock</h1>
             <TableContainer component={Paper} sx={{
-                width:"80vw",
-                margin:"2rem"
+                width: "80vw",
+                margin: "2rem"
             }}>
                 <Table>
                     <TableHead sx={{
-                        background:"#9DF7E5"
+                        background: "#9DF7E5"
                     }}>
                         <TableRow>
                             <TableCell align={"right"}>
@@ -90,13 +91,19 @@ const Stock = () => {
                             <TableCell align={"right"}>
                                 Brutto
                             </TableCell>
+                            {sessionStorage.getItem("position") === "1" &&
+                            (
+                                <><TableCell align={"right"}/><TableCell align={"right"}/></>
+                                )}
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {
-                            product.map(({sku,
-                                              brutto, brand, image, name,
-                                              category, netto, description}) => {
+                            product.map(({
+                                             sku,
+                                             brutto, brand, image, name,
+                                             category, netto, description
+                                         }) => {
                                 return (
                                     <TableRow hover key={sku}>
                                         <TableCell align={"right"}>
@@ -123,6 +130,21 @@ const Stock = () => {
                                         <TableCell align={"right"}>
                                             {brutto} Ft
                                         </TableCell>
+                                        {sessionStorage.getItem("position") === "1" &&
+                                        (
+                                            <>
+                                                <TableCell align={"right"}>
+                                                    <Button variant="contained" color="success">
+                                                        Modify
+                                                    </Button>
+                                                </TableCell>
+                                                <TableCell align={"right"}>
+                                                    <Button variant="contained" color="error">
+                                                        Delete
+                                                    </Button>
+                                                </TableCell>
+                                            </>
+                                        )}
                                     </TableRow>
                                 )
                             })
