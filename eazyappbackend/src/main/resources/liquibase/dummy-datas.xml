@@ -23,7 +23,7 @@
             <column name="name" value="Dreher" />
         </insert>
     </changeSet>
-    <changeSet id="product" author="adam.pterik">
+    <changeSet id="product" author="adam.petrik">
         <insert tableName="product">
             <column name="name" value="Ipa Sör"/>
             <column name="description" value="sör"/>
@@ -37,6 +37,16 @@
             <column name="image" value="image"/>
         </insert>
     </changeSet>
+    <changeSet id="position" author="adam.petrik">
+        <insert tableName="position">
+            <column name="position_id" value="1"/>
+            <column name="position_name" value="Pultos"/>
+        </insert>
+        <insert tableName="position">
+            <column name="position_id" value="2"/>
+            <column name="position_name" value="Admin"/>
+        </insert>
+    </changeSet>
     <changeSet id="employee" author="adam.petrik">
         <insert tableName="employee">
             <column name="manufacturer_id" value="1"/>
@@ -45,6 +55,16 @@
             <column name="phone" value="06204475021"/>
             <column name="mail" value="mail@gmail.com"/>
             <column name="password" value="asdasd"/>
+            <column name="position_id" value="1"/>
+        </insert>
+        <insert tableName="employee">
+            <column name="manufacturer_id" value="1"/>
+            <column name="first_name" value="Barna"/>
+            <column name="last_name" value="Balogh"/>
+            <column name="phone" value="06204475021"/>
+            <column name="mail" value="balogh@gmail.com"/>
+            <column name="password" value="asdasd"/>
+            <column name="position_id" value="2"/>
         </insert>
     </changeSet>
 </databaseChangeLog>

@@ -21,10 +21,13 @@ const Login = () => {
             "mail": mail,
             "password": password
         }).then(res => {
-                setIsLogged(res.data as boolean)
-                sessionStorage.setItem("auth",res.data)
-                res.data && navigate("/orders")
-                res.data ? (
+                let logged: boolean = res.data.toString().split(',')[0] as boolean;
+                let position: string = res.data.toString().split(',')[1]
+                setIsLogged(logged)
+                sessionStorage.setItem("auth", logged.toString())
+                sessionStorage.setItem("position",position);
+                logged && navigate("/orders")
+                logged ? (
                     MySwal.fire({
                         icon: 'success',
                         title: 'Logged',

@@ -147,7 +147,7 @@
         <addForeignKeyConstraint baseColumnNames="position_id" baseTableName="employee" constraintName="fkbc8rdko9o9n1ri9bpdyxv3x7i" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="position_id" referencedTableName="position" validate="true"/>
     </changeSet>
     <changeSet author="adam.petrik" id="1661886399260-14">
-        <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="employee" constraintName="fket68o7q1d3gwukwg0j1o5dbcu" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="manufacturer_id" referencedTableName="manufacturer" validate="true"/>
+        <addForeignKeyConstraint baseColumnNames="manufacturer_id" baseTableName="employee" constraintName="fket68o7q1d3gwukwg0j1o5dbcu" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="manufacturer_id" referencedTableName="manufacturer" validate="true"/>
     </changeSet>
     <changeSet author="adam.petrik" id="1661886399260-15">
         <addForeignKeyConstraint baseColumnNames="product_id" baseTableName="stock" constraintName="fkjghkvw2snnsr5gpct0of7xfcf" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="product_id" referencedTableName="product" validate="true"/>

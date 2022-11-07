@@ -9,6 +9,6 @@ spring:
       ddl-auto: none
   liquibase:
     enabled: true
-    drop-first: false
+    drop-first: true
     labels: update
     change-log: classpath:liquibase/changelog.xml

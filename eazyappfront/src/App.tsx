@@ -10,7 +10,7 @@ function App() {
 
     const navigate = useNavigate();
     useEffect(()=>{
-        if (!sessionStorage.getItem("auth")) {
+        if (!sessionStorage.getItem("auth") as boolean) {
             navigate("/login");
         }
     },[])

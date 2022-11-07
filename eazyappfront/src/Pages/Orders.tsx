@@ -86,17 +86,23 @@ const Orders = () => {
             }
         ).catch(err => console.log(err))
     }
+
+    const sendAb = async () => {
+        console.log(columns);
+    }
+
+
     const columnsFromBackend =
         {
-            ["asd"]: {
+            ["todo"]: {
                 name: 'Todo',
                 items: ord
             },
-            ["asd2"]: {
+            ["progress"]: {
                 name: 'Progress',
                 items: []
             },
-            ["asd3"]: {
+            ["done"]: {
                 name: 'Done',
                 items: []
             },
@@ -107,6 +113,10 @@ const Orders = () => {
         getOrders();
     }, [])
 
+
+    useEffect(() => {
+        sendAb();
+    },[columns])
     if (!load) {
         return (
             <Stack spacing={1}>
