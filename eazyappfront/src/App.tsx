@@ -7,6 +7,7 @@ import Orders from "./Pages/Orders";
 import Login from "./Pages/Auth/Login";
 import {AuthContext, AuthContextProvider} from "./Context/AuthContextProvider";
 function App() {
+
     const navigate = useNavigate();
     useEffect(()=>{
         if (!sessionStorage.getItem("auth")) {

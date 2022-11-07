@@ -10,7 +10,9 @@ import {
 } from "react-beautiful-dnd";
 import "./Orders.css"
 import axios from "axios";
-
+import Skeleton from '@mui/material/Skeleton';
+import Stack from '@mui/material/Stack';
+import OrderBox from "../Components/OrderBox";
 interface rentsInterface {
     name: string,
     count: number
@@ -23,6 +25,7 @@ interface orderInterface {
 
 
 const Orders = () => {
+    const [load,setLoad] = useState<boolean>(false)
     const onDragEnd = (result: any, columns: any, setColumns: any) => {
         if (!result.destination) return;
         // @ts-ignore
@@ -79,6 +82,7 @@ const Orders = () => {
                     }
                     ord.push(order)
                 }
+                setLoad(true);
             }
         ).catch(err => console.log(err))
     }
@@ -102,6 +106,18 @@ const Orders = () => {
     useEffect(() => {
         getOrders();
     }, [])
+
+    if (!load) {
+        return (
+            <Stack spacing={1}>
+                <Skeleton variant="text" sx={{ fontSize: '1rem' }} />
+                <Skeleton variant="circular" width={40} height={40} />
+                <Skeleton variant="rectangular" width={210} height={60} />
+                <Skeleton variant="rounded" width={210} height={60} />
+            </Stack>
+        )
+    }
+    else {
         return (
             <div style={{display: "flex"}}>
                 <DragDropContext onDragEnd={result => onDragEnd(result, columns, setColumns)}>
@@ -136,24 +152,7 @@ const Orders = () => {
                                                                        index={index}>
                                                                 {(provided: DraggableProvided, snapshot: DraggableStateSnapshot) => {
                                                                     return (
-                                                                        <div
-                                                                            ref={provided.innerRef}
-                                                                            {...provided.draggableProps}
-                                                                            {...provided.dragHandleProps}
-                                                                            style={{
-                                                                                userSelect: "none",
-                                                                                padding: 16,
-                                                                                margin: "0 0 8px 0",
-                                                                                minHeight: "50px",
-                                                                                backgroundColor: snapshot.isDragging
-                                                                                    ? "#263B4A"
-                                                                                    : "#456C86",
-                                                                                color: "white",
-                                                                                ...provided.draggableProps.style
-                                                                            }}
-                                                                        >
-                                                                            {item.id}
-                                                                        </div>
+                                                                <OrderBox provided={provided} snapshot={snapshot} id={item.id} rents={item.rents}/>
                                                                     )
                                                                 }}
                                                             </Draggable>
@@ -171,6 +170,7 @@ const Orders = () => {
                 </DragDropContext>
             </div>
         );
+    }
 };
 
 export default Orders;
