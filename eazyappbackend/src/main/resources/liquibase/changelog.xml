@@ -16,4 +16,93 @@
     </changeSet>
 
     <include file="liquibase/dummy-datas.xml"/>
+
+    <changeSet author="adam.petrik" id="2022_11_09_create_history_product">
+        <createTable tableName="product_history">
+            <column autoIncrement="true" name="product_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="prodhist_dim"/>
+            </column>
+            <column name="brutto_price" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="category" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="image" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(100)"/>
+            <column name="netto_price" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_group" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sku" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="brand_id" type="BIGINT"/>
+            <column name="manufacturer_id" type="BIGINT"/>
+            <column name="valid_from" type="datetime"/>
+            <column name="valid_to" type="datetime"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="adam.petrik" id="2022_11_09_create_order_star">
+        <createTable tableName="product_dim">
+            <column autoIncrement="true" name="product_dim_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="proddim_prim"/>
+            </column>
+            <column name="category" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(100)"/>
+        </createTable>
+        <createTable tableName="date_dim">
+            <column autoIncrement="true" name="date_dim_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="datedim_prim"/>
+            </column>
+            <column name="date" type="datetime"/>
+            <column name="day" type="integer"/>
+            <column name="hour" type="integer"/>
+            <column name="minute" type="integer"/>
+            <column name="month" type="integer"/>
+            <column name="year" type="integer"/>
+        </createTable>
+        <createTable tableName="customer_dim">
+            <column autoIncrement="true" name="customer_dim_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="custdim_prim"/>
+            </column>
+            <column name="last_name" type="VARCHAR(100)"/>
+            <column name="first_name" type="VARCHAR(100)"/>
+            <column name="mail" type="VARCHAR(100)"/>
+            <column name="user_name" type="VARCHAR(100)"/>
+        </createTable>
+        <createTable tableName="manufactur_dim">
+            <column autoIncrement="true" name="manufactur_dim_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="mandim_prim"/>
+            </column>
+            <column name="name" type="VARCHAR(100)"/>
+            <column name="street" type="VARCHAR(100)"/>
+            <column name="city" type="VARCHAR(100)"/>
+        </createTable>
+        <createTable tableName="order_fact">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="orderfact_prim"/>
+            </column>
+            <column name="customer_dim_id" type="BIGINT"/>
+            <column name="date_dim_id" type="BIGINT"/>
+            <column name="manufactur_dim_id" type="BIGINT"/>
+            <column name="product_dim_id" type="BIGINT"/>
+            <column name="count" type="integer"/>
+            <column name="price" type="integer"/>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="order_fact" baseColumnNames="product_dim_id"
+                                 constraintName="fact_prod_dim_for" referencedTableName="product_dim"
+                                 referencedColumnNames="product_dim_id"/>
+        <addForeignKeyConstraint baseTableName="order_fact" baseColumnNames="customer_dim_id"
+                                 constraintName="fact_cus_dim_for" referencedTableName="customer_dim"
+                                 referencedColumnNames="customer_dim_id"/>
+        <addForeignKeyConstraint baseTableName="order_fact" baseColumnNames="date_dim_id"
+                                 constraintName="fact_date_dim_for" referencedTableName="date_dim"
+                                 referencedColumnNames="date_dim_id"/>
+        <addForeignKeyConstraint baseTableName="order_fact" baseColumnNames="manufactur_dim_id"
+                                 constraintName="fact_man_dim_for" referencedTableName="manufactur_dim"
+                                 referencedColumnNames="manufactur_dim_id"/>
+    </changeSet>
 </databaseChangeLog>
