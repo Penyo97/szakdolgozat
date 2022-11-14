@@ -48,7 +48,8 @@ const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
 
 interface rentsInterface {
     name: string,
-    count: number
+    count: number,
+    price: number
 }
 
 interface orderInterface {
@@ -68,7 +69,8 @@ const getOrders = async () => {
                 for (let j = 0; j < res.data[i].Rents.length; j++) {
                     const rent: rentsInterface = {
                         name: res.data[i].Rents[j].Name,
-                        count: res.data[i].Rents[j].Count
+                        count: res.data[i].Rents[j].Count,
+                        price: res.data[i].Rents[j].Price
                     }
                     rentArray.push(rent)
                 }
@@ -84,7 +86,6 @@ const getOrders = async () => {
             }
         }
     ).catch(err => console.log(err))
-    console.log(ord)
     await axios.post("http://localhost:8080/api/datawarehouse",
         {dataMartDatasList: ord}).then(e => console.log(e)).catch(err => console.log(err))
 }
