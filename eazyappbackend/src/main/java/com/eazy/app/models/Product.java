@@ -46,4 +46,6 @@ public class Product {
     private Integer netto_price;
 
     private Integer brutto_price;
+
+    private Integer free;
 }

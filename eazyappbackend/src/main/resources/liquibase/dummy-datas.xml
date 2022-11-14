@@ -35,6 +35,7 @@
             <column name="netto_price" value="300"/>
             <column name="product_group" value="1"/>
             <column name="image" value="image"/>
+            <column name="free" value="10"/>
         </insert>
     </changeSet>
     <changeSet id="position" author="adam.petrik">
