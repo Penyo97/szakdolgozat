@@ -125,7 +125,7 @@
         <addForeignKeyConstraint baseColumnNames="manufacturer_id" baseTableName="employee" constraintName="fket68o7q1d3gwukwg0j1o5dbcu" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="manufacturer_id" referencedTableName="manufacturer" validate="true"/>
     </changeSet>
     <changeSet author="adam.petrik" id="1661886399260-17">
-        <addForeignKeyConstraint baseColumnNames="product_id" baseTableName="product" constraintName="fkr3s8beeip4rmjc8r7xnp9dr73" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="manufacturer_id" referencedTableName="manufacturer" validate="true"/>
+        <addForeignKeyConstraint baseColumnNames="manufacturer_id" baseTableName="product" constraintName="fkr3s8beeip4rmjc8r7xnp9dr73" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="manufacturer_id" referencedTableName="manufacturer" validate="true"/>
     </changeSet>
     <changeSet author="adam.petrik" id="1661886399260-18">
         <addForeignKeyConstraint baseColumnNames="brand_id" baseTableName="product" constraintName="fks6cydsualtsrprvlf2bb3lcam" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="brand_id" referencedTableName="brand" validate="true"/>

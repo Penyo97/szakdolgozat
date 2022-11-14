@@ -22,6 +22,15 @@
         <insert tableName="brand">
             <column name="name" value="Dreher" />
         </insert>
+        <insert tableName="brand">
+            <column name="name" value="Jack Daniels" />
+        </insert>
+        <insert tableName="brand">
+            <column name="name" value="Jager" />
+        </insert>
+        <insert tableName="brand">
+            <column name="name" value="Soproni" />
+        </insert>
     </changeSet>
     <changeSet id="product" author="adam.petrik">
         <insert tableName="product">
@@ -36,6 +45,45 @@
             <column name="product_group" value="1"/>
             <column name="image" value="image"/>
             <column name="free" value="10"/>
+        </insert>
+        <insert tableName="product">
+            <column name="name" value="Jack Daniels Whiskey"/>
+            <column name="description" value="whiskey"/>
+            <column name="brand_id" value="2"/>
+            <column name="brutto_price" value="450"/>
+            <column name="category" value="whiskey"/>
+            <column name="sku" value="1313"/>
+            <column name="manufacturer_id" value="1"/>
+            <column name="netto_price" value="400"/>
+            <column name="product_group" value="1"/>
+            <column name="image" value="image"/>
+            <column name="free" value="2"/>
+        </insert>
+        <insert tableName="product">
+            <column name="name" value="Jager"/>
+            <column name="description" value="keserű"/>
+            <column name="brand_id" value="3"/>
+            <column name="brutto_price" value="550"/>
+            <column name="category" value="keserű"/>
+            <column name="sku" value="1414"/>
+            <column name="manufacturer_id" value="1"/>
+            <column name="netto_price" value="450"/>
+            <column name="product_group" value="1"/>
+            <column name="image" value="image"/>
+            <column name="free" value="3"/>
+        </insert>
+        <insert tableName="product">
+            <column name="name" value="Soproni Sör"/>
+            <column name="description" value="sör"/>
+            <column name="brand_id" value="4"/>
+            <column name="brutto_price" value="250"/>
+            <column name="category" value="sör"/>
+            <column name="sku" value="1515"/>
+            <column name="manufacturer_id" value="1"/>
+            <column name="netto_price" value="200"/>
+            <column name="product_group" value="1"/>
+            <column name="image" value="image"/>
+            <column name="free" value="15"/>
         </insert>
     </changeSet>
     <changeSet id="position" author="adam.petrik">

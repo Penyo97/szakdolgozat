@@ -114,6 +114,18 @@ const Stock = () => {
         ).catch(err => console.log(err))
     }
 
+    const deleteSelectedItem = async (sku: number) => {
+        await axios.post("http://localhost:8080/api/deleteItem/"+sku).then((s) =>
+            {
+                getProduct();
+                MySwal.fire({
+                    icon: 'success',
+                    title: 'Delete Success',
+                })
+            }
+        ).catch(err => console.log(err))
+    }
+
     return (
         <div>
             <TableContainer component={Paper} sx={{
@@ -186,10 +198,10 @@ const Stock = () => {
                                            <h2>{category}</h2>
                                         </TableCell>
                                         <TableCell align={"right"}>
-                                            <h2>{netto} Ft</h2>
+                                            <h2>{netto} Ft {category === "sör" ? "/db" : "/4 cl"}</h2>
                                         </TableCell>
                                         <TableCell align={"right"}>
-                                            <h2>{brutto} Ft</h2>
+                                            <h2>{brutto} Ft {category === "sör" ? "/db" : "/4 cl"}</h2>
                                         </TableCell>
                                         <TableCell align={"right"}>
                                             <h2>{free} DB</h2>
@@ -207,7 +219,7 @@ const Stock = () => {
                                                     </Button>
                                                 </TableCell>
                                                 <TableCell align={"right"}>
-                                                    <Button variant="contained" color="error">
+                                                    <Button variant="contained" color="error" onClick={() => {deleteSelectedItem(sku)}}>
                                                         Delete
                                                     </Button>
                                                 </TableCell>

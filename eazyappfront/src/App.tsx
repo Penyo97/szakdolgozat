@@ -6,6 +6,7 @@ import "./App.css"
 import Orders from "./Pages/Orders";
 import Login from "./Pages/Auth/Login";
 import {AuthContext, AuthContextProvider} from "./Context/AuthContextProvider";
+import Charts from "./Pages/Charts";
 function App() {
 
     const navigate = useNavigate();
@@ -22,6 +23,7 @@ function App() {
                 <Route path={"/login"} element={<Login />}/>
                 <Route path={"/stock"} element={<Stock/>}/>
                 <Route path={"/orders"} element={<Orders/>}/>
+                <Route path={"/charts"} element={<Charts/>}/>
             </Routes>
             </AuthContextProvider>
         </div>

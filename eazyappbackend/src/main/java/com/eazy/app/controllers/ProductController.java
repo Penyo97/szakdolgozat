@@ -39,4 +39,9 @@ public class ProductController {
         modProduct.setNetto_price(product.netto);
         productRepository.save(modProduct);
     }
+    @PostMapping("/deleteItem/{sku}")
+    public void deleteItem(@PathVariable String sku){
+        Optional<Product> prod = productRepository.findProductBySku(Integer.parseInt(sku));
+        productRepository.delete(prod.get());
+    }
 }

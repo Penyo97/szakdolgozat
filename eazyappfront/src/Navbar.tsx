@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {NavLink, useLocation} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCartShopping, faBeer, faArrowLeftLong, faArrowRightLong} from "@fortawesome/free-solid-svg-icons"
+import {faCartShopping, faBeer, faArrowLeftLong, faArrowRightLong,faChartSimple} from "@fortawesome/free-solid-svg-icons"
 import './Navbar.css'
 import logo from "./Assets/EZ_Logo.png"
 
@@ -48,6 +48,15 @@ const Navbar = () => {
                                                                        : !checker("/stock") &&  hover ? 'Navbar__Icons Navbar__IconPadding'
                                                                            : 'Navbar__Icons'}/><span
                 className={hover ? 'Navbar__MenuTextNone Navbar__MenuText' : 'Navbar__MenuTextNone'}>Stock</span></span></NavLink>
+            {sessionStorage.getItem("position") === "1" && (
+                <NavLink to="/charts" style={({isActive}) => isActive ? activeStyle : notactivestyle}><span
+                    className="Navbar__LinkContainer"><FontAwesomeIcon icon={faChartSimple}
+                                                                       className={checker("/stock") && hover
+                                                                           ? 'Navbar__Icons Navbar__ActiveIconPadding'
+                                                                           : !checker("/stock") && hover ? 'Navbar__Icons Navbar__IconPadding'
+                                                                               : 'Navbar__Icons'}/><span
+                    className={hover ? 'Navbar__MenuTextNone Navbar__MenuText' : 'Navbar__MenuTextNone'}>Charts</span></span></NavLink>
+            )}
         </div>
     );
 };
