@@ -66,7 +66,6 @@ const Orders = () => {
     let ord: Array<orderInterface> = [];
     const getOrders = async () => {
         await axios.get("http://localhost:4000/getOrders").then(res => {
-
                 for (let i = 0; i < res.data.length; i++) {
                     let rentArray: Array<rentsInterface> = [];
                     for (let j = 0; j < res.data[i].Rents.length; j++) {
