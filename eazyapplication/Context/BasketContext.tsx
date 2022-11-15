@@ -3,9 +3,9 @@ import React, {createContext, useState} from "react";
 
 interface BasketInterface {
     product_id: number,
-    product_name: string,
-    product_count: number,
-    product_price: number,
+    Name: string,
+    Count: number,
+    Price: number,
 }
 
 interface basketContext {

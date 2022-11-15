@@ -6,6 +6,7 @@ import {COLORS} from "../AppAssets";
 // @ts-ignore
 import logo from "../assets/ez_logo.png";
 import {BasketContext, BasketInterface} from "../Context/BasketContext";
+import axios from "axios";
 
 
 interface circle {
@@ -102,8 +103,23 @@ const circleStyle = StyleSheet.create({
 
 
 const OrderButton = () => {
+    const {basket} = useContext(BasketContext);
+    const sendToAb = async () => {
+        await axios.post("http://192.168.1.74:4000/insert/order",{
+            "id":1,
+            "User": {
+                "userid":2,
+                "First_Name":"Ádám",
+                "Last_Name":"Petrik",
+                "User_Name":"Petrik97",
+                "Email":"test@test.com",
+                "Poins":34
+            },
+            "Rents":basket
+        }).then(res => console.log(res)).catch(err => console.log(err));
+    }
     return (
-        <TouchableOpacity style={style.orderbutton}>
+        <TouchableOpacity style={style.orderbutton} onPress={sendToAb}>
         <Text style={{fontSize:16,color:"#fff"}}>Megrendelés</Text>
     </TouchableOpacity>
     )
@@ -111,7 +127,7 @@ const OrderButton = () => {
 
 const wholePrice = (basket: Array<BasketInterface>): number => {
     let sum = 0;
-    basket.forEach(prod => sum += (prod.product_price * prod.product_count));
+    basket.forEach(prod => sum += (prod.Price * prod.Count));
     return sum;
 }
 

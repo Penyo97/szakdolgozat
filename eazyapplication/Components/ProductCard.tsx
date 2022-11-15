@@ -39,10 +39,10 @@ const ProductCard = ({title, description, price, size, addBasket}: pubcardInterf
 
     const modifyText = (text: string, title: string) => {
         if (text === "-") {
-            if (basket.find(prod => prod.product_name.valueOf() === title)!.product_count > 0) {
+            if (basket.find(prod => prod.Name.valueOf() === title)!.Count > 0) {
                 setCount(count - 1)
-                basket.find(prod => prod.product_name.valueOf() === title)!.product_count -= 1;
-                if (basket.find(prod => prod.product_name.valueOf() === title)!.product_count == 0) {
+                basket.find(prod => prod.Name.valueOf() === title)!.Count -= 1;
+                if (basket.find(prod => prod.Name.valueOf() === title)!.Count == 0) {
                     setPress(false)
                 }
             } else {

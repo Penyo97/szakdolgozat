@@ -43,13 +43,13 @@ const Basket = () => {
                             <DataTable.Title numeric>Termék db</DataTable.Title>
                             <DataTable.Title numeric>Összesen</DataTable.Title>
                         </DataTable.Header>
-                    {basket.filter(x => x.product_count != 0).map(({product_name,product_price,product_count}) => {
+                    {basket.filter(x => x.Count != 0).map(({Name,Price,Count}) => {
                         return(
-                                <DataTable.Row key={product_name}>
-                                    <DataTable.Cell >{product_name}</DataTable.Cell>
-                                    <DataTable.Cell numeric>{product_price} Ft</DataTable.Cell>
-                                    <DataTable.Cell numeric>{product_count} db</DataTable.Cell>
-                                    <DataTable.Cell numeric>{product_count*product_price} Ft</DataTable.Cell>
+                                <DataTable.Row key={Name}>
+                                    <DataTable.Cell >{Name}</DataTable.Cell>
+                                    <DataTable.Cell numeric>{Price} Ft</DataTable.Cell>
+                                    <DataTable.Cell numeric>{Count} db</DataTable.Cell>
+                                    <DataTable.Cell numeric>{Count*Price} Ft</DataTable.Cell>
                                 </DataTable.Row>
                         )
                     })}
