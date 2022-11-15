@@ -27,10 +27,14 @@ app.get("/", (req, res) => {
 app.get("/getOrders",(req,res)=> {
     Orders.find({}, (err, orders) => {
         res.status(200).send(orders);
-    });
+    },{limit:1});
 })
 
-
+app.get("/login",(req,res)=> {
+    User.find({}, (err, users) => {
+        res.status(200).send(users);
+    });
+})
 app.post("/insert/order", async(req, res) => {
     const {userid, First_Name, Last_Name, User_Name, Email, Poins} = req.body.User;
     let user = await  User.findOne({id: userid}).select("id First_Name Last_Name User_Name Email Poins").lean();
@@ -47,6 +51,7 @@ app.post("/insert/order", async(req, res) => {
     }
     const {id} = req.body
     let orders = [];
+    console.log(req.body.Rents)
     for (const index in req.body.Rents) {
         orders.push(req.body.Rents[index]);
     }

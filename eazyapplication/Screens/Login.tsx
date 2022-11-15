@@ -1,9 +1,10 @@
-import React, { useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Dimensions,StyleSheet, View, Text} from "react-native";
 import {LinearGradient} from "expo-linear-gradient"
 import {COLORS, SOCCOLORS} from "../AppAssets"
 import {Card, TextInput, Paragraph, Checkbox} from "react-native-paper";
 import {Button, SocialButton} from "../Components"
+import axios from "axios";
 
 
 const Login = () => {
@@ -11,6 +12,16 @@ const Login = () => {
     const [checked, setChecked] = useState<Boolean>(false);
     const [mail, setMail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
+
+    const getUsers = async () =>{
+        await axios.get("http://localhost:4000/login").then(res =>{
+            console.log(res.data)
+        }).catch(err => console.log(err));
+    }
+
+    useEffect(() => {
+
+    },[])
 
     return (
         <View>
