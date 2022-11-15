@@ -1,8 +1,10 @@
 package com.eazy.app.models.dataWarehouse.OrderDM;
 
 import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 @Entity
@@ -12,6 +14,7 @@ import lombok.experimental.SuperBuilder;
 public class OrderFact {
     @Id
     @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne

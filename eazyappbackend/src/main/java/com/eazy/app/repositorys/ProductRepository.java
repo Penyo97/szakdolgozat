@@ -12,4 +12,6 @@ public interface ProductRepository extends CrudRepository<Product,Long> {
     Iterable<Product> getProductsByManufacturer(Manufacturer manufacturer);
 
     Optional<Product> findProductBySku(Integer sku);
+
+    Optional<Product> findProductByName(String name);
 }

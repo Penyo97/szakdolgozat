@@ -47,17 +47,16 @@
 
     <changeSet author="adam.petrik" id="2022_11_09_create_order_star">
         <createTable tableName="product_dim">
-            <column autoIncrement="true" name="product_dim_id" type="BIGINT">
+            <column name="product_dim_id" type="BIGINT">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="proddim_prim"/>
             </column>
             <column name="category" type="VARCHAR(255)"/>
             <column name="name" type="VARCHAR(100)"/>
         </createTable>
         <createTable tableName="date_dim">
-            <column autoIncrement="true" name="date_dim_id" type="BIGINT">
+            <column name="date_dim_id" type="datetime">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="datedim_prim"/>
             </column>
-            <column name="date" type="datetime"/>
             <column name="day" type="integer"/>
             <column name="hour" type="integer"/>
             <column name="minute" type="integer"/>
@@ -65,7 +64,7 @@
             <column name="year" type="integer"/>
         </createTable>
         <createTable tableName="customer_dim">
-            <column autoIncrement="true" name="customer_dim_id" type="BIGINT">
+            <column name="customer_dim_id" type="BIGINT">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="custdim_prim"/>
             </column>
             <column name="last_name" type="VARCHAR(100)"/>
@@ -74,7 +73,7 @@
             <column name="user_name" type="VARCHAR(100)"/>
         </createTable>
         <createTable tableName="manufactur_dim">
-            <column autoIncrement="true" name="manufactur_dim_id" type="BIGINT">
+            <column  name="manufactur_dim_id" type="BIGINT">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="mandim_prim"/>
             </column>
             <column name="name" type="VARCHAR(100)"/>
@@ -86,7 +85,7 @@
                 <constraints nullable="false" primaryKey="true" primaryKeyName="orderfact_prim"/>
             </column>
             <column name="customer_dim_id" type="BIGINT"/>
-            <column name="date_dim_id" type="BIGINT"/>
+            <column name="date_dim_id" type="datetime"/>
             <column name="manufactur_dim_id" type="BIGINT"/>
             <column name="product_dim_id" type="BIGINT"/>
             <column name="count" type="integer"/>

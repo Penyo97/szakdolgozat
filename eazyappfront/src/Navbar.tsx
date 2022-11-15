@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {NavLink, useLocation} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCartShopping, faBeer, faArrowLeftLong, faArrowRightLong,faChartSimple} from "@fortawesome/free-solid-svg-icons"
+import {faCartShopping, faBeer, faArrowLeftLong, faArrowRightLong,faChartSimple,faRightFromBracket} from "@fortawesome/free-solid-svg-icons"
 import './Navbar.css'
 import logo from "./Assets/EZ_Logo.png"
 
@@ -51,12 +51,23 @@ const Navbar = () => {
             {sessionStorage.getItem("position") === "1" && (
                 <NavLink to="/charts" style={({isActive}) => isActive ? activeStyle : notactivestyle}><span
                     className="Navbar__LinkContainer"><FontAwesomeIcon icon={faChartSimple}
-                                                                       className={checker("/stock") && hover
+                                                                       className={checker("/charts") && hover
                                                                            ? 'Navbar__Icons Navbar__ActiveIconPadding'
-                                                                           : !checker("/stock") && hover ? 'Navbar__Icons Navbar__IconPadding'
+                                                                           : !checker("/charts") && hover ? 'Navbar__Icons Navbar__IconPadding'
                                                                                : 'Navbar__Icons'}/><span
                     className={hover ? 'Navbar__MenuTextNone Navbar__MenuText' : 'Navbar__MenuTextNone'}>Charts</span></span></NavLink>
             )}
+            <NavLink to="/login" onClick={
+                () => {
+                    sessionStorage.clear();
+                }
+            } style={({isActive}) => isActive ? activeStyle : notactivestyle}><span
+                className="Navbar__LinkContainer"><FontAwesomeIcon icon={faRightFromBracket}
+                                                                   className={checker("/login") && hover
+                                                                       ? 'Navbar__Icons Navbar__ActiveIconPadding'
+                                                                       : !checker("/login") && hover ? 'Navbar__Icons Navbar__IconPadding'
+                                                                           : 'Navbar__Icons'}/><span
+                className={hover ? 'Navbar__MenuTextNone Navbar__MenuText' : 'Navbar__MenuTextNone'}>Exit</span></span></NavLink>
         </div>
     );
 };
